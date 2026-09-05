@@ -1,0 +1,25 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+
+# Jupyter
+.ipynb_checkpoints/
+
+# macOS
+.DS_Store
+
+# Dataset / large files
+*.h5
+*.hdf5
+*.zip
+
+# Generated data
+data/raw/
+data/processed/
+
+# Experiment outputs
+results/models/
+
+# Environment / secrets
+.env
