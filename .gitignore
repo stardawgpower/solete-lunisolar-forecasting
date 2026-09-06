@@ -25,3 +25,6 @@ results/models/
 .env
 # Local SOLETE dataset directory
 solete_dataset/
+
+# JPL astronomical ephemeris files
+ephemeris/
