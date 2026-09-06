@@ -23,3 +23,5 @@ results/models/
 
 # Environment / secrets
 .env
+# Local SOLETE dataset directory
+solete_dataset/
