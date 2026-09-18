@@ -1,0 +1,14 @@
+filename,size_bytes,size_kb
+baseline_results.csv,4843,4.7294921875
+experiment_protocol.json,1967,1.9208984375
+final_f3_f4_test_summary.csv,957,0.9345703125
+final_test_predictions_15min.csv,7797196,7614.44921875
+final_test_predictions_30min.csv,7783168,7600.75
+final_test_predictions_60min.csv,7768445,7586.3720703125
+final_test_results.csv,9694,9.466796875
+frozen_model_selection.csv,2282,2.228515625
+hgbr_validation_selected.csv,2386,2.330078125
+paired_block_bootstrap_distributions.csv.gz,2605880,2544.8046875
+paired_block_bootstrap_summary.csv,2461,2.4033203125
+panchang_vocabulary.json,1368,1.3359375
+ridge_validation_selected.csv,2175,2.1240234375

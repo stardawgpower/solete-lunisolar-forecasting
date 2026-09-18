@@ -1,0 +1,96 @@
+{
+  "notebook": "09_modelling_dataset_and_protocol.ipynb",
+  "target": "P_Solar[kW]",
+  "resolution_minutes": 5,
+  "forecast_horizons_minutes": [
+    15,
+    30,
+    60
+  ],
+  "primary_horizon_minutes": 60,
+  "recent_history_lags_steps": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "daily_pv_lag_steps": 288,
+  "f0_history_variables": [
+    "P_Solar[kW]",
+    "GHI[kW1m2]",
+    "POA Irr[kW1m2]",
+    "TEMPERATURE[degC]",
+    "Humidity_clean",
+    "Pressure_clean[mbar]",
+    "WIND_SPEED[m1s]",
+    "wind_direction_sin",
+    "wind_direction_cos"
+  ],
+  "feature_counts": {
+    "F0": 118,
+    "F1": 133,
+    "F2": 138,
+    "F3": 147,
+    "F4": 244
+  },
+  "split_boundaries_utc": {
+    "train_start": "2018-06-01T00:00:00+00:00",
+    "validation_start": "2019-04-01T00:00:00+00:00",
+    "test_start": "2019-06-01T00:00:00+00:00",
+    "test_end_exclusive": "2019-09-01T00:00:00+00:00"
+  },
+  "split_assignment": "forecast-valid time",
+  "deterministic_feature_time": "forecast-valid time t+h",
+  "solete_astronomy_offset_minutes": 2,
+  "models": [
+    "Ridge",
+    "HistGradientBoostingRegressor"
+  ],
+  "ridge_alpha_grid": [
+    0.01,
+    0.1,
+    1.0,
+    10.0,
+    100.0
+  ],
+  "hgbr_grid": {
+    "learning_rate": [
+      0.05,
+      0.1
+    ],
+    "max_leaf_nodes": [
+      15,
+      31
+    ],
+    "l2_regularization": [
+      0.0,
+      1.0
+    ],
+    "max_iter": 300,
+    "early_stopping": false,
+    "random_state": 42
+  },
+  "primary_metric": "MAE_kW",
+  "pv_rated_kw": 10.0,
+  "daylight_definition": "forecast-valid solar elevation > 0 degrees",
+  "panchang_encoding": "full fixed-vocabulary one-hot encoding",
+  "panchang_indicator_count": 97,
+  "bootstrap": {
+    "comparison": "F3_minus_F4_MAE",
+    "block_unit": "forecast-valid UTC calendar day",
+    "daily_blocks": 92,
+    "replicates": 10000,
+    "random_seed": 42,
+    "confidence_interval": "95% percentile",
+    "model_retraining": false
+  }
+}

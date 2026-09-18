@@ -1,0 +1,31 @@
+model,horizon_minutes,feature_family,selected_parameters,validation_MAE_kW
+Ridge,15,F0,alpha=100,0.30090030702004267
+Ridge,15,F1,alpha=100,0.3078908080711034
+Ridge,15,F2,alpha=100,0.3042355293689081
+Ridge,15,F3,alpha=0.01,0.30764653273521464
+Ridge,15,F4,alpha=0.01,0.3064127061499372
+HGBR,15,F0,"learning_rate=0.05, max_leaf_nodes=15, l2_regularization=1, max_iter=300",0.29350984055405055
+HGBR,15,F1,"learning_rate=0.05, max_leaf_nodes=15, l2_regularization=1, max_iter=300",0.2688993141448472
+HGBR,15,F2,"learning_rate=0.05, max_leaf_nodes=15, l2_regularization=1, max_iter=300",0.27465312322537655
+HGBR,15,F3,"learning_rate=0.05, max_leaf_nodes=15, l2_regularization=1, max_iter=300",0.27870570908646913
+HGBR,15,F4,"learning_rate=0.05, max_leaf_nodes=15, l2_regularization=1, max_iter=300",0.27652050539926926
+Ridge,30,F0,alpha=100,0.38290739911107013
+Ridge,30,F1,alpha=100,0.393408271719986
+Ridge,30,F2,alpha=100,0.3862164244034996
+Ridge,30,F3,alpha=0.01,0.38908106825416294
+Ridge,30,F4,alpha=0.01,0.38818037843298925
+HGBR,30,F0,"learning_rate=0.05, max_leaf_nodes=15, l2_regularization=1, max_iter=300",0.35728796999338774
+HGBR,30,F1,"learning_rate=0.05, max_leaf_nodes=15, l2_regularization=1, max_iter=300",0.316789404605491
+HGBR,30,F2,"learning_rate=0.05, max_leaf_nodes=15, l2_regularization=0, max_iter=300",0.31965810773842784
+HGBR,30,F3,"learning_rate=0.05, max_leaf_nodes=15, l2_regularization=1, max_iter=300",0.33202982626177246
+HGBR,30,F4,"learning_rate=0.05, max_leaf_nodes=15, l2_regularization=0, max_iter=300",0.3261991825622501
+Ridge,60,F0,alpha=100,0.5127134159791293
+Ridge,60,F1,alpha=100,0.5238608560625642
+Ridge,60,F2,alpha=100,0.5124236113473695
+Ridge,60,F3,alpha=0.01,0.5114637410053592
+Ridge,60,F4,alpha=0.01,0.509420544852621
+HGBR,60,F0,"learning_rate=0.05, max_leaf_nodes=15, l2_regularization=0, max_iter=300",0.4629102099361732
+HGBR,60,F1,"learning_rate=0.05, max_leaf_nodes=15, l2_regularization=1, max_iter=300",0.36307046477936084
+HGBR,60,F2,"learning_rate=0.05, max_leaf_nodes=15, l2_regularization=0, max_iter=300",0.36849425966850446
+HGBR,60,F3,"learning_rate=0.05, max_leaf_nodes=15, l2_regularization=0, max_iter=300",0.3838584075558355
+HGBR,60,F4,"learning_rate=0.05, max_leaf_nodes=15, l2_regularization=1, max_iter=300",0.3961498284604588
