@@ -1,0 +1,73 @@
+{
+  "bootstrap": {
+    "aggregation": "pooled MAE reconstructed from sampled daily absolute-error sums and sampled row counts",
+    "block_unit": "forecast-valid UTC calendar day",
+    "comparison": "F3_minus_F4_MAE",
+    "confidence_interval": "95% percentile",
+    "daily_blocks": 92,
+    "positive_difference_means": "F4 lower MAE than F3",
+    "random_seed": 42,
+    "replicates": 10000,
+    "retraining": false,
+    "scopes": [
+      "all",
+      "daylight"
+    ]
+  },
+  "daylight_definition": "forecast-valid solar_elevation_deg > 0",
+  "feature_counts": {
+    "F0": 118,
+    "F1": 133,
+    "F2": 138,
+    "F3": 147,
+    "F4": 244
+  },
+  "feature_families": [
+    "F0",
+    "F1",
+    "F2",
+    "F3",
+    "F4"
+  ],
+  "fixed_model_parameters": {
+    "colsample_bytree": 0.8,
+    "gamma": 0.0,
+    "min_child_weight": 1.0,
+    "n_jobs": -1,
+    "objective": "reg:squarederror",
+    "random_state": 42,
+    "reg_alpha": 0.0,
+    "reg_lambda": 1.0,
+    "subsample": 0.8,
+    "tree_method": "hist",
+    "verbosity": 0
+  },
+  "forecast_horizons_minutes": [
+    15,
+    30,
+    60
+  ],
+  "model": "XGBRegressor",
+  "number_of_grid_configurations": 8,
+  "numerical_note": "Observed XGBoost F3/F4 MAEs were converted from float32-derived NumPy scalars to Python float before relative-percentage arithmetic. This avoids negligible float32/float64 cross-check differences and does not alter predictions or the bootstrap procedure.",
+  "sampling_resolution_minutes": 5,
+  "selection_metric": "validation MAE",
+  "selection_tiebreaker": "validation RMSE",
+  "target": "P_Solar[kW]",
+  "test_policy": "All 15 horizon \u00d7 feature-family configurations were selected using chronological validation MAE before any XGBoost test metric was inspected. Each frozen model was then refitted once on train + validation and evaluated on the held-out chronological test period.",
+  "validation_grid": {
+    "learning_rate": [
+      0.03,
+      0.05
+    ],
+    "max_depth": [
+      4,
+      6
+    ],
+    "n_estimators": [
+      300,
+      600
+    ]
+  },
+  "xgboost_version": "3.4.1"
+}

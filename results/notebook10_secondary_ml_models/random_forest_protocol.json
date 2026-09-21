@@ -1,0 +1,104 @@
+{
+  "bootstrap": {
+    "analysis_order": [
+      "15_all",
+      "15_daylight",
+      "30_all",
+      "30_daylight",
+      "60_all",
+      "60_daylight"
+    ],
+    "confidence_interval": "95% percentile",
+    "mae_reconstruction": "pooled row-weighted MAE",
+    "n_day_blocks": 92,
+    "n_replicates": 10000,
+    "resampling_unit": "forecast-valid UTC calendar day",
+    "retraining": false,
+    "seed": 42
+  },
+  "central_comparison": "F3 versus F4",
+  "central_comparison_interpretation": "Positive F3_minus_F4_MAE means F4 has lower MAE.",
+  "daylight_definition": "Forecast-valid solar_elevation_deg > 0 degrees",
+  "experiment_role": "Secondary classical machine-learning model",
+  "feature_counts": {
+    "F0": 118,
+    "F1": 133,
+    "F2": 138,
+    "F3": 147,
+    "F4": 244
+  },
+  "feature_families": [
+    "F0",
+    "F1",
+    "F2",
+    "F3",
+    "F4"
+  ],
+  "final_refit": "train_plus_validation",
+  "fixed_parameters": {
+    "bootstrap": true,
+    "criterion": "squared_error",
+    "max_samples": null,
+    "n_estimators": 300,
+    "n_jobs": -1,
+    "random_state": 42,
+    "verbose": 0
+  },
+  "forecast_horizons_minutes": [
+    15,
+    30,
+    60
+  ],
+  "grid_size_per_horizon_feature_family": 8,
+  "model": "RandomForestRegressor",
+  "pv_rated_kw": 10.0,
+  "secondary_selection_metric": "validation_RMSE",
+  "selection_metric": "validation_MAE",
+  "software_random_state": 42,
+  "target": "P_Solar[kW]",
+  "test_policy": "Held-out test set evaluated only after all 15 Random Forest configurations were frozen.",
+  "total_validation_model_selections": 15,
+  "training_for_selection": "train_only",
+  "validation_grid": [
+    {
+      "max_depth": null,
+      "max_features": 0.5,
+      "min_samples_leaf": 1
+    },
+    {
+      "max_depth": 30,
+      "max_features": 0.5,
+      "min_samples_leaf": 1
+    },
+    {
+      "max_depth": null,
+      "max_features": 0.5,
+      "min_samples_leaf": 3
+    },
+    {
+      "max_depth": 30,
+      "max_features": 0.5,
+      "min_samples_leaf": 3
+    },
+    {
+      "max_depth": null,
+      "max_features": 1.0,
+      "min_samples_leaf": 1
+    },
+    {
+      "max_depth": 30,
+      "max_features": 1.0,
+      "min_samples_leaf": 1
+    },
+    {
+      "max_depth": null,
+      "max_features": 1.0,
+      "min_samples_leaf": 3
+    },
+    {
+      "max_depth": 30,
+      "max_features": 1.0,
+      "min_samples_leaf": 3
+    }
+  ]
+}

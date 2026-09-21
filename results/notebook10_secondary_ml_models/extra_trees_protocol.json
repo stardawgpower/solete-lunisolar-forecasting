@@ -1,0 +1,54 @@
+{
+  "notebook": "10_secondary_ml_models.ipynb",
+  "model": "ExtraTreesRegressor",
+  "target": "P_Solar[kW]",
+  "resolution_minutes": 5,
+  "forecast_horizons_minutes": [
+    15,
+    30,
+    60
+  ],
+  "feature_counts": {
+    "F0": 118,
+    "F1": 133,
+    "F2": 138,
+    "F3": 147,
+    "F4": 244
+  },
+  "validation_selection_metric": "MAE_kW",
+  "hyperparameter_grid": {
+    "n_estimators": [
+      300
+    ],
+    "max_features": [
+      0.5,
+      1.0
+    ],
+    "min_samples_leaf": [
+      1,
+      3
+    ],
+    "max_depth": [
+      null,
+      30
+    ],
+    "criterion": "squared_error",
+    "bootstrap": false,
+    "random_state": 42,
+    "n_jobs": -1
+  },
+  "number_of_grid_configurations": 8,
+  "test_refit": "train_plus_validation",
+  "test_evaluation": "single chronological held-out test evaluation",
+  "test_rows_per_horizon": 26496,
+  "daylight_definition": "forecast-valid solar elevation > 0 degrees",
+  "bootstrap": {
+    "comparison": "F3_minus_F4_MAE",
+    "block_unit": "forecast-valid UTC calendar day",
+    "daily_blocks": 92,
+    "replicates": 10000,
+    "random_seed": 42,
+    "confidence_interval": "95% percentile",
+    "model_retraining": false
+  }
+}

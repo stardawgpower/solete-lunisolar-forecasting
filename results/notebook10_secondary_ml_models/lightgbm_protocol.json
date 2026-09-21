@@ -1,0 +1,107 @@
+{
+  "bootstrap": {
+    "aggregation": "pooled MAE reconstructed from sampled daily row counts and absolute-error sums",
+    "block_unit": "forecast-valid UTC calendar day",
+    "comparison": "F3 absolute error minus F4 absolute error",
+    "confidence_interval": "95% percentile",
+    "daily_blocks": 92,
+    "model_retraining": false,
+    "positive_direction": "positive means F4 has lower MAE",
+    "random_seed": 42,
+    "replicates": 10000,
+    "scopes": [
+      "all",
+      "daylight"
+    ]
+  },
+  "central_ablation": "F3 -> F4",
+  "central_interpretation": "incremental categorical Vedic/Panchang representation beyond continuous solar/lunar astronomical controls",
+  "daylight_definition": "forecast-valid solar_elevation_deg > 0",
+  "early_stopping": false,
+  "experiment_role": "secondary machine-learning model",
+  "feature_counts": {
+    "F0": 118,
+    "F1": 133,
+    "F2": 138,
+    "F3": 147,
+    "F4": 244
+  },
+  "feature_family_order": [
+    "F0",
+    "F1",
+    "F2",
+    "F3",
+    "F4"
+  ],
+  "final_refit_population": "train + validation",
+  "fixed_parameters": {
+    "boosting_type": "gbdt",
+    "colsample_bytree": 0.8,
+    "deterministic": true,
+    "force_col_wise": true,
+    "max_depth": -1,
+    "min_child_samples": 20,
+    "n_jobs": -1,
+    "objective": "regression",
+    "random_state": 42,
+    "reg_alpha": 0.0,
+    "reg_lambda": 1.0,
+    "subsample": 0.8,
+    "subsample_freq": 1,
+    "verbosity": -1
+  },
+  "forecast_horizons_minutes": [
+    15,
+    30,
+    60
+  ],
+  "hyperparameter_grid": [
+    {
+      "learning_rate": 0.03,
+      "n_estimators": 300,
+      "num_leaves": 15
+    },
+    {
+      "learning_rate": 0.03,
+      "n_estimators": 300,
+      "num_leaves": 31
+    },
+    {
+      "learning_rate": 0.05,
+      "n_estimators": 300,
+      "num_leaves": 15
+    },
+    {
+      "learning_rate": 0.05,
+      "n_estimators": 300,
+      "num_leaves": 31
+    },
+    {
+      "learning_rate": 0.03,
+      "n_estimators": 600,
+      "num_leaves": 15
+    },
+    {
+      "learning_rate": 0.03,
+      "n_estimators": 600,
+      "num_leaves": 31
+    },
+    {
+      "learning_rate": 0.05,
+      "n_estimators": 600,
+      "num_leaves": 15
+    },
+    {
+      "learning_rate": 0.05,
+      "n_estimators": 600,
+      "num_leaves": 31
+    }
+  ],
+  "model": "LGBMRegressor",
+  "n_grid_configurations": 8,
+  "target": "P_Solar[kW]",
+  "test_population": "held-out chronological test period",
+  "test_selection_use": "none",
+  "validation_secondary_metric": "RMSE",
+  "validation_selection_metric": "MAE"
+}

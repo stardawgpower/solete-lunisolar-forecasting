@@ -1,0 +1,12 @@
+filename,size_bytes,size_kb
+extra_trees_validation_summary.csv,1317,1.2861328125
+extra_trees_frozen_selection.csv,1060,1.03515625
+extra_trees_final_test_results.csv,4275,4.1748046875
+extra_trees_f3_f4_test_summary.csv,499,0.4873046875
+extra_trees_bootstrap_summary.csv,1438,1.404296875
+extra_trees_bootstrap_distributions.csv.gz,1354797,1323.0439453125
+extra_trees_test_predictions_15min.csv,4353061,4251.0361328125
+extra_trees_test_predictions_30min.csv,4357807,4255.6708984375
+extra_trees_test_predictions_60min.csv,4365499,4263.1826171875
+extra_trees_selected_configs.json,3538,3.455078125
+extra_trees_protocol.json,1171,1.1435546875
