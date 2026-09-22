@@ -1,0 +1,7 @@
+source,horizons_found,expected_horizons_complete
+Notebook 09 — Primary models,"[np.int64(15), np.int64(30), np.int64(60)]",True
+Notebook 10 — Extra Trees,"[np.int64(15), np.int64(30), np.int64(60)]",True
+Notebook 10 — Random Forest,"[np.int64(15), np.int64(30), np.int64(60)]",True
+Notebook 10 — XGBoost,"[np.int64(15), np.int64(30), np.int64(60)]",True
+Notebook 10 — LightGBM,"[np.int64(15), np.int64(30), np.int64(60)]",True
+Notebook 11 — Deep learning,"[np.int64(15), np.int64(30), np.int64(60)]",True

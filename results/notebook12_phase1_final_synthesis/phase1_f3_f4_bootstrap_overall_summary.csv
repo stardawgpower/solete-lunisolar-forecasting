@@ -1,0 +1,2 @@
+comparisons,F4_lower_MAE_point_count,F4_higher_MAE_point_count,CI_above_zero_count,CI_below_zero_count,CI_crosses_zero_count
+60,35,25,12,16,32

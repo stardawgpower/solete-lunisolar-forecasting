@@ -1,0 +1,11 @@
+source_notebook,model_class,raw_model_name,expected_display_name,result_rows
+Notebook 09,Primary statistical / ML model,HGBR,HGBR,30
+Notebook 09,Primary statistical / ML model,Ridge,Ridge,30
+Notebook 10,Secondary ML model,ExtraTreesRegressor,Extra Trees,15
+Notebook 10,Secondary ML model,RandomForestRegressor,Random Forest,15
+Notebook 10,Secondary ML model,XGBRegressor,XGBoost,15
+Notebook 10,Secondary ML model,LGBMRegressor,LightGBM,15
+Notebook 11,Deep-learning model,BiLSTM,BiLSTM,15
+Notebook 11,Deep-learning model,GRU,GRU,15
+Notebook 11,Deep-learning model,LSTM,LSTM,15
+Notebook 11,Deep-learning model,TCN,TCN,15

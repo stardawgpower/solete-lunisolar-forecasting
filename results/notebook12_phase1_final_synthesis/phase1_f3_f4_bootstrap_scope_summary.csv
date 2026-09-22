@@ -1,0 +1,3 @@
+scope,comparisons,F4_lower_MAE_point_count,F4_higher_MAE_point_count,CI_above_zero_count,CI_below_zero_count,CI_crosses_zero_count
+all,30,17,13,5,8,17
+daylight,30,18,12,7,8,15

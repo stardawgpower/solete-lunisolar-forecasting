@@ -1,0 +1,6 @@
+feature_family,description,increment_added
+F0,Forecast-history / meteorological baseline representation,Base representation
+F1,F0 + Gregorian calendar features,Gregorian calendar
+F2,F1 + solar astronomical features,Solar astronomy
+F3,F2 + continuous lunar / Sun-Moon astronomical features,Continuous lunar / Sun-Moon astronomy
+F4,F3 + categorical Panchang / Vedic calendar features,Categorical Panchang representation

@@ -1,0 +1,7 @@
+source,horizons_found,features_found,all_expected_horizons_present,all_expected_feature_families_present
+Notebook 09 final models,"[np.int64(15), np.int64(30), np.int64(60)]","['F0', 'F1', 'F2', 'F3', 'F4']",True,True
+Notebook 10 Extra Trees,"[np.int64(15), np.int64(30), np.int64(60)]","['F0', 'F1', 'F2', 'F3', 'F4']",True,True
+Notebook 10 Random Forest,"[np.int64(15), np.int64(30), np.int64(60)]","['F0', 'F1', 'F2', 'F3', 'F4']",True,True
+Notebook 10 XGBoost,"[np.int64(15), np.int64(30), np.int64(60)]","['F0', 'F1', 'F2', 'F3', 'F4']",True,True
+Notebook 10 LightGBM,"[np.int64(15), np.int64(30), np.int64(60)]","['F0', 'F1', 'F2', 'F3', 'F4']",True,True
+Notebook 11 deep learning,"[np.int64(15), np.int64(30), np.int64(60)]","['F0', 'F1', 'F2', 'F3', 'F4']",True,True

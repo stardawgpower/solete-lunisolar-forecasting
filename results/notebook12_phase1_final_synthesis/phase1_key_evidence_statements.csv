@@ -1,0 +1,11 @@
+statement_id,statement
+E1,"Across all 60 model-horizon-scope comparisons, F4 has lower point-estimate MAE than F3 in 35 cases and higher MAE in 25 cases."
+E2,"The paired calendar-day block-bootstrap 95% CI lies entirely above zero in 12 comparisons, entirely below zero in 16 comparisons, and crosses zero in 32 comparisons."
+E3,The F3 -> F4 effect is not universal: both favorable and unfavorable resolved effects occur across the frozen model families.
+E4,The 30-minute horizon contains more resolved positive than resolved negative F3 -> F4 comparisons in both all-row and daylight evaluation.
+E5,"At 60 minutes, resolved negative F3 -> F4 effects are more common than resolved positive effects in both evaluation scopes."
+E6,"Ridge and GRU show consistently negative F3 -> F4 effects across all six evaluated horizon-scope combinations, with every 95% CI below zero."
+E7,"TCN exhibits a resolved horizon reversal: F4 reduces MAE relative to F3 at 15 and 30 minutes in both scopes, but increases MAE at 60 minutes in both scopes."
+E8,"For HGBR and XGBoost, all six point estimates favor F4, but every corresponding 95% CI crosses zero."
+E9,"F3 -> F4 improvement must be interpreted as incremental information beyond the continuous astronomical representation, not as proof that F4 is the globally best feature family."
+E10,The Phase-1 experiment supports predictive and representational conclusions only and does not establish a physical causal influence of Panchang categories on photovoltaic generation.

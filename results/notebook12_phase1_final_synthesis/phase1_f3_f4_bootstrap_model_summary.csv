@@ -1,0 +1,11 @@
+model,comparisons,F4_lower_MAE_point_count,F4_higher_MAE_point_count,CI_above_zero_count,CI_below_zero_count,CI_crosses_zero_count
+Ridge,6,0,6,0,6,0
+HGBR,6,6,0,0,0,6
+Extra Trees,6,2,4,0,0,6
+Random Forest,6,4,2,0,0,6
+XGBoost,6,6,0,0,0,6
+LightGBM,6,6,0,2,0,4
+LSTM,6,4,2,4,0,2
+GRU,6,0,6,0,6,0
+BiLSTM,6,3,3,2,2,2
+TCN,6,4,2,4,2,0

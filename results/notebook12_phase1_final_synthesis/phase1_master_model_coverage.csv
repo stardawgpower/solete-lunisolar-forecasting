@@ -1,0 +1,11 @@
+source_notebook,model_class,model,result_rows,horizons,feature_families,test_population
+Notebook 09,Primary statistical / ML model,HGBR,15,3,5,26496
+Notebook 09,Primary statistical / ML model,Ridge,15,3,5,26496
+Notebook 10,Secondary ML model,Extra Trees,15,3,5,26496
+Notebook 10,Secondary ML model,LightGBM,15,3,5,26496
+Notebook 10,Secondary ML model,Random Forest,15,3,5,26496
+Notebook 10,Secondary ML model,XGBoost,15,3,5,26496
+Notebook 11,Deep-learning model,BiLSTM,15,3,5,26496
+Notebook 11,Deep-learning model,GRU,15,3,5,26496
+Notebook 11,Deep-learning model,LSTM,15,3,5,26496
+Notebook 11,Deep-learning model,TCN,15,3,5,26496

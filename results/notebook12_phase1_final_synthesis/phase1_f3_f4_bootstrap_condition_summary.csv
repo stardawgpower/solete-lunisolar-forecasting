@@ -1,0 +1,7 @@
+horizon_minutes,scope,models_compared,F4_lower_MAE_point_count,F4_higher_MAE_point_count,CI_above_zero_count,CI_below_zero_count,CI_crosses_zero_count
+15,all,10,5,5,1,2,7
+15,daylight,10,5,5,2,2,6
+30,all,10,7,3,4,2,4
+30,daylight,10,7,3,4,2,4
+60,all,10,5,5,0,4,6
+60,daylight,10,6,4,1,4,5

@@ -1,0 +1,31 @@
+model,horizon_minutes,all_point_direction,daylight_point_direction,all_CI_zero_status,daylight_CI_zero_status,all_effect_percent,daylight_effect_percent,point_direction_same,CI_zero_status_same,effect_sign_same
+BiLSTM,15,F4_lower_MAE,F4_higher_MAE,crosses_zero,crosses_zero,1.5433158004338667,-1.707390980529178,False,True,False
+BiLSTM,30,F4_lower_MAE,F4_lower_MAE,above_zero,above_zero,8.66441998432006,3.3081690102237027,True,True,True
+BiLSTM,60,F4_higher_MAE,F4_higher_MAE,below_zero,below_zero,-8.978698338833452,-6.797675337822823,True,True,True
+Extra Trees,15,F4_higher_MAE,F4_higher_MAE,crosses_zero,crosses_zero,-0.4165108903128321,-0.417671955355917,True,True,True
+Extra Trees,30,F4_higher_MAE,F4_higher_MAE,crosses_zero,crosses_zero,-0.2389481985444582,-0.2408920137552929,True,True,True
+Extra Trees,60,F4_lower_MAE,F4_lower_MAE,crosses_zero,crosses_zero,0.0269571508340163,0.025549460924907,True,True,True
+GRU,15,F4_higher_MAE,F4_higher_MAE,below_zero,below_zero,-7.590038590981059,-1.2363109315516387,True,True,True
+GRU,30,F4_higher_MAE,F4_higher_MAE,below_zero,below_zero,-5.464907201284336,-8.568435149208709,True,True,True
+GRU,60,F4_higher_MAE,F4_higher_MAE,below_zero,below_zero,-4.489917102146005,-5.1032828804731905,True,True,True
+HGBR,15,F4_lower_MAE,F4_lower_MAE,crosses_zero,crosses_zero,0.5716173169709803,0.4683395977901864,True,True,True
+HGBR,30,F4_lower_MAE,F4_lower_MAE,crosses_zero,crosses_zero,0.0560846461521443,0.0486876254278192,True,True,True
+HGBR,60,F4_lower_MAE,F4_lower_MAE,crosses_zero,crosses_zero,0.0369974637824898,0.0669176302496667,True,True,True
+LSTM,15,F4_higher_MAE,F4_lower_MAE,crosses_zero,above_zero,-0.8845449795206772,1.263797,False,False,False
+LSTM,30,F4_lower_MAE,F4_lower_MAE,above_zero,above_zero,5.797531687852631,4.17485,True,True,True
+LSTM,60,F4_higher_MAE,F4_lower_MAE,crosses_zero,above_zero,-1.441883489096209,3.449669,False,False,False
+LightGBM,15,F4_lower_MAE,F4_lower_MAE,crosses_zero,crosses_zero,0.0589894126414217,0.1680614736975946,True,True,True
+LightGBM,30,F4_lower_MAE,F4_lower_MAE,above_zero,above_zero,0.5848659428249309,0.574744349357618,True,True,True
+LightGBM,60,F4_lower_MAE,F4_lower_MAE,crosses_zero,crosses_zero,0.0659395911057828,0.2446202688309242,True,True,True
+Random Forest,15,F4_higher_MAE,F4_higher_MAE,crosses_zero,crosses_zero,-0.1830695476834483,-0.1844806343881145,True,True,True
+Random Forest,30,F4_lower_MAE,F4_lower_MAE,crosses_zero,crosses_zero,0.2080250166252572,0.2075982020866647,True,True,True
+Random Forest,60,F4_lower_MAE,F4_lower_MAE,crosses_zero,crosses_zero,0.1300991578427018,0.130705716358057,True,True,True
+Ridge,15,F4_higher_MAE,F4_higher_MAE,below_zero,below_zero,-3.4360647595038327,-1.7027712054834536,True,True,True
+Ridge,30,F4_higher_MAE,F4_higher_MAE,below_zero,below_zero,-4.7846122540254905,-2.606783889227884,True,True,True
+Ridge,60,F4_higher_MAE,F4_higher_MAE,below_zero,below_zero,-6.692235426385324,-4.164006093738913,True,True,True
+TCN,15,F4_lower_MAE,F4_lower_MAE,above_zero,above_zero,19.94510438423764,18.198193480537565,True,True,True
+TCN,30,F4_lower_MAE,F4_lower_MAE,above_zero,above_zero,30.934651793904216,34.34975798618327,True,True,True
+TCN,60,F4_higher_MAE,F4_higher_MAE,below_zero,below_zero,-27.474756684243523,-42.91645228151674,True,True,True
+XGBoost,15,F4_lower_MAE,F4_lower_MAE,crosses_zero,crosses_zero,0.2678568045422672,0.2266240972027148,True,True,True
+XGBoost,30,F4_lower_MAE,F4_lower_MAE,crosses_zero,crosses_zero,0.6637408814040593,1.1412968775921148,True,True,True
+XGBoost,60,F4_lower_MAE,F4_lower_MAE,crosses_zero,crosses_zero,0.043051689609151,0.9310176378120744,True,True,True

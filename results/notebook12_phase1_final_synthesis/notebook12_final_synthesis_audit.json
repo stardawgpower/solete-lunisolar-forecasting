@@ -1,0 +1,100 @@
+{
+  "notebook": "12_phase1_final_synthesis.ipynb",
+  "phase": "Phase 1 final synthesis",
+  "status": "PASSED",
+  "protocol": {
+    "phase": "Phase 1",
+    "target": "P_Solar",
+    "forecast_horizons_minutes": [
+      15,
+      30,
+      60
+    ],
+    "feature_families": [
+      "F0",
+      "F1",
+      "F2",
+      "F3",
+      "F4"
+    ],
+    "core_incremental_comparison": "F3 -> F4",
+    "core_interpretation": "Categorical Panchang representation beyond continuous lunar / Sun-Moon astronomical controls",
+    "test_scope_primary": "all",
+    "test_scope_secondary": "daylight",
+    "daylight_definition": "Valid-time solar elevation > 0 degrees",
+    "test_rows_all": 26496,
+    "test_rows_daylight": 17851,
+    "test_calendar_day_blocks": 92,
+    "bootstrap_replicates": 10000,
+    "bootstrap_seed": 42,
+    "bootstrap_interval": "percentile 95%",
+    "bootstrap_statistic": "MAE_F3 - MAE_F4",
+    "positive_effect_meaning": "F4 lower MAE than F3",
+    "prediction_clipping": false,
+    "causal_claim": false,
+    "cross_architecture_effect_size_averaging": false,
+    "test_driven_model_selection": false,
+    "frozen_notebook11_tag": "phase1-notebook11-final"
+  },
+  "master_result_matrix": {
+    "trained_models": 10,
+    "horizons": 3,
+    "feature_families": 5,
+    "trained_model_test_rows": 150,
+    "expected_rows": 150,
+    "baseline_rows": 9
+  },
+  "feature_transition_summary": {
+    "F0_to_F1_lower_MAE": 26,
+    "F0_to_F1_higher_MAE": 4,
+    "F1_to_F2_lower_MAE": 17,
+    "F1_to_F2_higher_MAE": 13,
+    "F2_to_F3_lower_MAE": 7,
+    "F2_to_F3_higher_MAE": 23,
+    "F3_to_F4_all_row_lower_MAE": 17,
+    "F3_to_F4_all_row_higher_MAE": 13
+  },
+  "f3_f4_unified_bootstrap": {
+    "comparisons": 60,
+    "F4_lower_MAE_point_estimates": 35,
+    "F4_higher_MAE_point_estimates": 25,
+    "CI_above_zero": 12,
+    "CI_below_zero": 16,
+    "CI_crosses_zero": 32,
+    "interval_resolved_comparisons": 28
+  },
+  "scope_agreement": {
+    "model_horizon_pairs": 30,
+    "same_point_direction": 27,
+    "different_point_direction": 3,
+    "same_CI_zero_status": 28,
+    "different_CI_zero_status": 2
+  },
+  "publication_outputs": {
+    "publication_table_objects": 11,
+    "publication_figures": 4,
+    "rendered_figure_files": 12,
+    "figure_data_csvs": 4,
+    "figure_render_formats": [
+      "pdf",
+      "png",
+      "svg"
+    ]
+  },
+  "scientific_guardrails": {
+    "model_training_performed_in_notebook12": false,
+    "hyperparameter_tuning_performed_in_notebook12": false,
+    "test_driven_model_selection": false,
+    "prediction_clipping": false,
+    "bootstrap_recomputed": false,
+    "cross_architecture_effect_size_averaging": false,
+    "causal_claim": false
+  },
+  "scientific_conclusion": "The incremental predictive effect of categorical Panchang features beyond continuous solar/lunar astronomical controls is model- and horizon-dependent; both favorable and unfavorable resolved effects occur.",
+  "environment": {
+    "python": "3.12.14",
+    "platform": "macOS-26.3.1-arm64-arm-64bit",
+    "numpy": "2.0.2",
+    "pandas": "3.0.5"
+  }
+}

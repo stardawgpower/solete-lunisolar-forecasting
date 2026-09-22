@@ -1,0 +1,16 @@
+horizon_minutes,feature_family,models_compared,models_lower_MAE_than_persistence
+15,F0,10,6
+15,F1,10,6
+15,F2,10,6
+15,F3,10,5
+15,F4,10,5
+30,F0,10,6
+30,F1,10,8
+30,F2,10,8
+30,F3,10,5
+30,F4,10,6
+60,F0,10,9
+60,F1,10,10
+60,F2,10,9
+60,F3,10,8
+60,F4,10,8

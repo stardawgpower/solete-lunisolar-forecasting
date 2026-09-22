@@ -1,0 +1,5 @@
+transition,increment,conditions_compared,later_family_lower_MAE_count,later_family_higher_MAE_count,equal_MAE_count
+F0 -> F1,Gregorian calendar,30,26,4,0
+F1 -> F2,Solar astronomy,30,17,13,0
+F2 -> F3,Continuous lunar / Sun-Moon astronomy,30,7,23,0
+F3 -> F4,Categorical Panchang representation,30,17,13,0

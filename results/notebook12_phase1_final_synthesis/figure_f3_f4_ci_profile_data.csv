@@ -1,0 +1,7 @@
+horizon_minutes,scope,models_compared,CI_above_zero_count,CI_below_zero_count,CI_crosses_zero_count
+15,all,10,1,2,7
+15,daylight,10,2,2,6
+30,all,10,4,2,4
+30,daylight,10,4,2,4
+60,all,10,0,4,6
+60,daylight,10,1,4,5

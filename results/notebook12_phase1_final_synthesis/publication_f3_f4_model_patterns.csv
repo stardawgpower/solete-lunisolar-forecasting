@@ -1,0 +1,11 @@
+model,comparisons,F4_lower_MAE_point_count,F4_higher_MAE_point_count,CI_above_zero_count,CI_below_zero_count,CI_crosses_zero_count,model_pattern
+Ridge,6,0,6,0,6,0,consistent_CI_below_zero
+HGBR,6,6,0,0,0,6,all_positive_points_all_CIs_cross_zero
+Extra Trees,6,2,4,0,0,6,mixed_points_all_CIs_cross_zero
+Random Forest,6,4,2,0,0,6,mixed_points_all_CIs_cross_zero
+XGBoost,6,6,0,0,0,6,all_positive_points_all_CIs_cross_zero
+LightGBM,6,6,0,2,0,4,positive_resolved_plus_unresolved
+LSTM,6,4,2,4,0,2,positive_resolved_plus_unresolved
+GRU,6,0,6,0,6,0,consistent_CI_below_zero
+BiLSTM,6,3,3,2,2,2,resolved_bidirectional_pattern
+TCN,6,4,2,4,2,0,resolved_bidirectional_pattern

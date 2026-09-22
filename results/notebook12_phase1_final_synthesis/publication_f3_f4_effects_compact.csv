@@ -1,0 +1,61 @@
+model,horizon_minutes,scope,relative_MAE_effect_95CI,CI_zero_status
+Ridge,15,all,"-3.436% [-4.794%, -2.142%]",below_zero
+HGBR,15,all,"+0.572% [-0.067%, +1.316%]",crosses_zero
+Extra Trees,15,all,"-0.417% [-1.011%, +0.123%]",crosses_zero
+Random Forest,15,all,"-0.183% [-0.480%, +0.101%]",crosses_zero
+XGBoost,15,all,"+0.268% [-0.042%, +0.585%]",crosses_zero
+LightGBM,15,all,"+0.059% [-0.587%, +0.753%]",crosses_zero
+LSTM,15,all,"-0.885% [-2.591%, +0.801%]",crosses_zero
+GRU,15,all,"-7.590% [-9.358%, -5.883%]",below_zero
+BiLSTM,15,all,"+1.543% [-1.121%, +4.145%]",crosses_zero
+TCN,15,all,"+19.945% [+14.817%, +24.853%]",above_zero
+Ridge,15,daylight,"-1.703% [-2.430%, -1.047%]",below_zero
+HGBR,15,daylight,"+0.468% [-0.170%, +1.212%]",crosses_zero
+Extra Trees,15,daylight,"-0.418% [-1.022%, +0.137%]",crosses_zero
+Random Forest,15,daylight,"-0.184% [-0.475%, +0.103%]",crosses_zero
+XGBoost,15,daylight,"+0.227% [-0.089%, +0.550%]",crosses_zero
+LightGBM,15,daylight,"+0.168% [-0.483%, +0.846%]",crosses_zero
+LSTM,15,daylight,"+1.264% [+0.040%, +2.557%]",above_zero
+GRU,15,daylight,"-1.236% [-2.286%, -0.131%]",below_zero
+BiLSTM,15,daylight,"-1.707% [-3.846%, +0.318%]",crosses_zero
+TCN,15,daylight,"+18.198% [+13.545%, +22.702%]",above_zero
+Ridge,30,all,"-4.785% [-6.689%, -3.007%]",below_zero
+HGBR,30,all,"+0.056% [-0.876%, +0.928%]",crosses_zero
+Extra Trees,30,all,"-0.239% [-0.905%, +0.436%]",crosses_zero
+Random Forest,30,all,"+0.208% [-0.057%, +0.472%]",crosses_zero
+XGBoost,30,all,"+0.664% [-0.536%, +2.066%]",crosses_zero
+LightGBM,30,all,"+0.585% [+0.163%, +1.060%]",above_zero
+LSTM,30,all,"+5.798% [+3.553%, +7.940%]",above_zero
+GRU,30,all,"-5.465% [-7.888%, -3.164%]",below_zero
+BiLSTM,30,all,"+8.664% [+6.533%, +10.832%]",above_zero
+TCN,30,all,"+30.935% [+27.938%, +33.982%]",above_zero
+Ridge,30,daylight,"-2.607% [-3.742%, -1.572%]",below_zero
+HGBR,30,daylight,"+0.049% [-0.845%, +0.921%]",crosses_zero
+Extra Trees,30,daylight,"-0.241% [-0.906%, +0.445%]",crosses_zero
+Random Forest,30,daylight,"+0.208% [-0.057%, +0.467%]",crosses_zero
+XGBoost,30,daylight,"+1.141% [-0.076%, +2.552%]",crosses_zero
+LightGBM,30,daylight,"+0.575% [+0.155%, +1.057%]",above_zero
+LSTM,30,daylight,"+4.175% [+1.979%, +6.175%]",above_zero
+GRU,30,daylight,"-8.568% [-10.803%, -6.561%]",below_zero
+BiLSTM,30,daylight,"+3.308% [+1.464%, +5.211%]",above_zero
+TCN,30,daylight,"+34.350% [+30.977%, +37.793%]",above_zero
+Ridge,60,all,"-6.692% [-9.297%, -4.186%]",below_zero
+HGBR,60,all,"+0.037% [-1.172%, +1.234%]",crosses_zero
+Extra Trees,60,all,"+0.027% [-0.841%, +0.953%]",crosses_zero
+Random Forest,60,all,"+0.130% [-0.284%, +0.552%]",crosses_zero
+XGBoost,60,all,"+0.043% [-1.261%, +1.456%]",crosses_zero
+LightGBM,60,all,"+0.066% [-0.559%, +0.771%]",crosses_zero
+LSTM,60,all,"-1.442% [-3.451%, +0.566%]",crosses_zero
+GRU,60,all,"-4.490% [-7.025%, -1.990%]",below_zero
+BiLSTM,60,all,"-8.979% [-13.731%, -4.908%]",below_zero
+TCN,60,all,"-27.475% [-35.740%, -19.785%]",below_zero
+Ridge,60,daylight,"-4.164% [-5.879%, -2.528%]",below_zero
+HGBR,60,daylight,"+0.067% [-1.046%, +1.139%]",crosses_zero
+Extra Trees,60,daylight,"+0.026% [-0.839%, +1.010%]",crosses_zero
+Random Forest,60,daylight,"+0.131% [-0.285%, +0.546%]",crosses_zero
+XGBoost,60,daylight,"+0.931% [-0.428%, +2.338%]",crosses_zero
+LightGBM,60,daylight,"+0.245% [-0.382%, +0.942%]",crosses_zero
+LSTM,60,daylight,"+3.450% [+1.664%, +5.348%]",above_zero
+GRU,60,daylight,"-5.103% [-7.317%, -2.976%]",below_zero
+BiLSTM,60,daylight,"-6.798% [-10.805%, -3.256%]",below_zero
+TCN,60,daylight,"-42.916% [-54.539%, -32.403%]",below_zero
