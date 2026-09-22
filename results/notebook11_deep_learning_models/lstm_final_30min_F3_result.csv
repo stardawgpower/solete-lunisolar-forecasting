@@ -1,0 +1,2 @@
+model,candidate_id,horizon_minutes,feature_family,auxiliary_dim,trainable_parameter_count,n_train,n_validation,n_trainval,n_test,frozen_best_epoch,final_epochs_trained,test_MAE_kW,test_RMSE_kW,test_R2,final_fit_seconds,prediction_clipping,scaler_policy,refit_population
+LSTM,RNN_C1,30,F3,30,7425,87258,17568,104826,26496,5,5,0.3908739881957911,0.7414795859730464,0.7982168937899733,24.583215666934848,False,original_train_only_scalers,train_plus_validation

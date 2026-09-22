@@ -1,0 +1,90 @@
+{
+  "model_family": "TCN",
+  "candidate_id": "TCN_C1",
+  "architecture": {
+    "candidate_id": "TCN_C1",
+    "filters": 32,
+    "kernel_size": 3,
+    "dilations": [
+      1,
+      2,
+      4
+    ],
+    "convolutions_per_block": 2,
+    "dropout": 0.0,
+    "fusion_dense_units": 32,
+    "receptive_field_timesteps": 29
+  },
+  "frozen_epochs": {
+    "15_F0": 8,
+    "15_F1": 4,
+    "15_F2": 9,
+    "15_F3": 16,
+    "15_F4": 4,
+    "30_F0": 5,
+    "30_F1": 9,
+    "30_F2": 5,
+    "30_F3": 12,
+    "30_F4": 1,
+    "60_F0": 10,
+    "60_F1": 7,
+    "60_F2": 9,
+    "60_F3": 9,
+    "60_F4": 1
+  },
+  "auxiliary_dimensions": {
+    "F0": 1,
+    "F1": 16,
+    "F2": 21,
+    "F3": 30,
+    "F4": 127
+  },
+  "parameter_counts": {
+    "F0": 17857,
+    "F1": 18337,
+    "F2": 18497,
+    "F3": 18785,
+    "F4": 21889
+  },
+  "populations": {
+    "15": {
+      "train": 87261,
+      "validation": 17568,
+      "trainval": 104829,
+      "test": 26496
+    },
+    "30": {
+      "train": 87258,
+      "validation": 17568,
+      "trainval": 104826,
+      "test": 26496
+    },
+    "60": {
+      "train": 87252,
+      "validation": 17568,
+      "trainval": 104820,
+      "test": 26496
+    }
+  },
+  "batch_size": 256,
+  "shuffle": true,
+  "random_seed": 42,
+  "optimizer": "Adam",
+  "learning_rate": 0.001,
+  "clipnorm": 1.0,
+  "training_loss": "standardized_MAE",
+  "final_refit_population": "TRAIN_plus_VALIDATION",
+  "final_refit_order": "TRAIN_then_VALIDATION",
+  "scaler_policy": "original_TRAIN_only_scalers",
+  "callbacks_in_final_refit": false,
+  "validation_data_in_final_refit": false,
+  "prediction_clipping": false,
+  "test_used_to_select_architecture": false,
+  "test_used_to_select_epoch": false,
+  "test_used_at_protocol_freeze": false,
+  "test_evaluation_policy": "one held-out TEST evaluation per horizon-feature-family experiment",
+  "causal_temporal_convolutions": true,
+  "sequence_endpoint": "forecast_issue_time_t",
+  "future_observations_used": false,
+  "future_same_time_GHI_or_POA_used": false
+}

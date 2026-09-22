@@ -1,0 +1,4 @@
+model,horizon_minutes,all_rows_F3_to_F4_MAE_improvement_pct,daylight_F3_to_F4_MAE_improvement_pct,same_point_estimate_direction
+TCN,15,19.945104384237652,18.198193480537565,True
+TCN,30,30.934651793904216,34.349757986183285,True
+TCN,60,-27.47475668424354,-42.91645228151674,True

@@ -1,0 +1,7 @@
+horizon_minutes,scope,models_compared,positive_point_estimate_count,negative_point_estimate_count,zero_point_estimate_count,point_estimate_consensus,all_four_same_point_direction,CI_above_zero_count,CI_below_zero_count,CI_crosses_zero_count,CI_consensus,all_four_CIs_same_side_zero
+15,all,4,2,2,0,mixed,False,1,1,2,mixed,False
+15,daylight,4,2,2,0,mixed,False,2,1,1,mixed,False
+30,all,4,3,1,0,mixed,False,3,1,0,mixed,False
+30,daylight,4,3,1,0,mixed,False,3,1,0,mixed,False
+60,all,4,0,4,0,all_4_F4_higher_MAE,True,0,3,1,mixed,False
+60,daylight,4,1,3,0,mixed,False,1,3,0,mixed,False

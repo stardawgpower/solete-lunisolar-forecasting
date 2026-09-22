@@ -1,0 +1,7 @@
+horizon_minutes,scope,LSTM,GRU,BiLSTM,TCN
+15,all,crosses_zero,below_zero,crosses_zero,above_zero
+15,daylight,above_zero,below_zero,crosses_zero,above_zero
+30,all,above_zero,below_zero,above_zero,above_zero
+30,daylight,above_zero,below_zero,above_zero,above_zero
+60,all,crosses_zero,below_zero,below_zero,below_zero
+60,daylight,above_zero,below_zero,below_zero,below_zero

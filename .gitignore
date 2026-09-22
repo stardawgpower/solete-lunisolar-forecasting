@@ -28,3 +28,12 @@ solete_dataset/
 
 # JPL astronomical ephemeris files
 ephemeris/
+
+# Notebook 11 — large reproducible intermediate outputs
+results/notebook11_deep_learning_models/*_predictions.csv
+results/notebook11_deep_learning_models/*_test_alignment.csv
+
+# Notebook 11 — bootstrap replicate/distribution-level outputs
+results/notebook11_deep_learning_models/*bootstrap*replicates*.csv
+results/notebook11_deep_learning_models/*bootstrap*distributions*.csv
+results/notebook11_deep_learning_models/*bootstrap*distributions*.csv.gz

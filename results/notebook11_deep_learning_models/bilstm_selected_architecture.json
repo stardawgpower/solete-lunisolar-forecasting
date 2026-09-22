@@ -1,0 +1,34 @@
+{
+  "model": "BiLSTM",
+  "selection_horizon_minutes": 60,
+  "selection_feature_family": "F0",
+  "selection_dataset": "validation",
+  "test_used_for_selection": false,
+  "ranking_rule": [
+    "validation_MAE_kW ascending",
+    "validation_RMSE_kW ascending",
+    "trainable_parameter_count ascending"
+  ],
+  "selected_candidate": {
+    "candidate_id": "RNN_C2",
+    "units": 64,
+    "n_recurrent_layers": 1,
+    "dropout": 0.0,
+    "fusion_dense_units": 32
+  },
+  "selected_trainable_parameter_count": 42081,
+  "selected_best_epoch_on_60min_F0_validation": 6,
+  "selected_validation_MAE_kW": 0.46461198849658075,
+  "selected_validation_RMSE_kW": 0.8715686618876932,
+  "selected_validation_R2": 0.797865249180294,
+  "sequence_protocol": {
+    "n_timesteps": 13,
+    "n_sequence_channels": 9,
+    "history_window_minutes": 60,
+    "sequence_endpoint": "forecast issue time t",
+    "contains_future_observations": false,
+    "bidirectional_scope": "within historical sequence only",
+    "future_same_time_GHI_or_POA": false,
+    "test_used_for_architecture_selection": false
+  }
+}

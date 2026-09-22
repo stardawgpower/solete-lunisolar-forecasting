@@ -1,0 +1,7 @@
+horizon_minutes,scope,positive_point_estimates,negative_point_estimates,CI_above_zero,CI_below_zero,CI_crosses_zero,characterization
+15,all,2,2,1,1,2,evenly split point directions
+15,daylight,2,2,2,1,1,evenly split point directions
+30,all,3,1,3,1,0,majority F4-lower-MAE point direction
+30,daylight,3,1,3,1,0,majority F4-lower-MAE point direction
+60,all,0,4,0,3,1,unanimous F4-higher-MAE point direction
+60,daylight,1,3,1,3,0,majority F4-higher-MAE point direction

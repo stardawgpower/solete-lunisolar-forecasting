@@ -1,0 +1,7 @@
+horizon_minutes,scope,n_rows,n_daily_blocks,min_rows_per_block,max_rows_per_block
+15,all,26496,92,288,288
+15,daylight,17851,92,165,207
+30,all,26496,92,288,288
+30,daylight,17851,92,165,207
+60,all,26496,92,288,288
+60,daylight,17851,92,165,207

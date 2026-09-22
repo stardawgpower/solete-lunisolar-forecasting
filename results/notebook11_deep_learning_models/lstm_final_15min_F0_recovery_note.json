@@ -1,0 +1,13 @@
+{
+  "experiment": "LSTM_15min_F0",
+  "technical_recovery_run": true,
+  "prior_failed_test_access": true,
+  "prior_failure_stage": "after_test_prediction_before_metric_return",
+  "reason": "Incorrect keyword names were used when calling compute_regression_metrics_kw.",
+  "model_selection_changed_after_failure": false,
+  "architecture_changed_after_failure": false,
+  "epoch_count_changed_after_failure": false,
+  "feature_definition_changed_after_failure": false,
+  "scaling_changed_after_failure": false,
+  "test_driven_tuning": false
+}

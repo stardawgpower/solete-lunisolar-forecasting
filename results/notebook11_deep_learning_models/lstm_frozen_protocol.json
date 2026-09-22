@@ -1,0 +1,111 @@
+{
+  "model": "LSTM",
+  "architecture_selection_horizon_minutes": 60,
+  "architecture_selection_feature_family": "F0",
+  "architecture": {
+    "model": "LSTM",
+    "candidate_id": "RNN_C1",
+    "units": 32,
+    "n_recurrent_layers": 1,
+    "dropout": 0.0,
+    "fusion_dense_units": 32
+  },
+  "training_protocol": {
+    "batch_size": 256,
+    "max_validation_epochs": 80,
+    "optimizer": "Adam",
+    "learning_rate": 0.001,
+    "clipnorm": 1.0,
+    "loss": "MAE_on_standardized_target",
+    "early_stopping_monitor": "val_loss",
+    "early_stopping_patience": 8,
+    "early_stopping_min_delta": 0.0001,
+    "restore_best_weights": true,
+    "shuffle_training_samples": true,
+    "random_seed": 42
+  },
+  "final_refit_policy": {
+    "training_population": "train_plus_validation",
+    "epochs": "frozen_validation_selected_best_epoch",
+    "early_stopping": false,
+    "scalers": "original_train_only_scalers",
+    "test_used_during_refit": false
+  },
+  "best_epochs": [
+    {
+      "horizon_minutes": 15,
+      "feature_family": "F0",
+      "best_epoch": 7
+    },
+    {
+      "horizon_minutes": 15,
+      "feature_family": "F1",
+      "best_epoch": 1
+    },
+    {
+      "horizon_minutes": 15,
+      "feature_family": "F2",
+      "best_epoch": 2
+    },
+    {
+      "horizon_minutes": 15,
+      "feature_family": "F3",
+      "best_epoch": 2
+    },
+    {
+      "horizon_minutes": 15,
+      "feature_family": "F4",
+      "best_epoch": 7
+    },
+    {
+      "horizon_minutes": 30,
+      "feature_family": "F0",
+      "best_epoch": 10
+    },
+    {
+      "horizon_minutes": 30,
+      "feature_family": "F1",
+      "best_epoch": 1
+    },
+    {
+      "horizon_minutes": 30,
+      "feature_family": "F2",
+      "best_epoch": 6
+    },
+    {
+      "horizon_minutes": 30,
+      "feature_family": "F3",
+      "best_epoch": 5
+    },
+    {
+      "horizon_minutes": 30,
+      "feature_family": "F4",
+      "best_epoch": 1
+    },
+    {
+      "horizon_minutes": 60,
+      "feature_family": "F0",
+      "best_epoch": 10
+    },
+    {
+      "horizon_minutes": 60,
+      "feature_family": "F1",
+      "best_epoch": 4
+    },
+    {
+      "horizon_minutes": 60,
+      "feature_family": "F2",
+      "best_epoch": 1
+    },
+    {
+      "horizon_minutes": 60,
+      "feature_family": "F3",
+      "best_epoch": 3
+    },
+    {
+      "horizon_minutes": 60,
+      "feature_family": "F4",
+      "best_epoch": 2
+    }
+  ]
+}

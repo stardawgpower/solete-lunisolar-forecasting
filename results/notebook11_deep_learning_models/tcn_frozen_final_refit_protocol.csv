@@ -1,0 +1,16 @@
+model,candidate_id,horizon_minutes,feature_family,auxiliary_dim,trainable_parameter_count,n_train,n_validation,n_trainval,n_test_expected,frozen_epoch,batch_size,shuffle,random_seed,callbacks,validation_data_in_final_refit,prediction_clipping,scaler_policy,refit_population,test_used_at_protocol_freeze
+TCN,TCN_C1,15,F0,1,17857,87261,17568,104829,26496,8,256,True,42,False,False,False,original_train_only_scalers,train_plus_validation,False
+TCN,TCN_C1,15,F1,16,18337,87261,17568,104829,26496,4,256,True,42,False,False,False,original_train_only_scalers,train_plus_validation,False
+TCN,TCN_C1,15,F2,21,18497,87261,17568,104829,26496,9,256,True,42,False,False,False,original_train_only_scalers,train_plus_validation,False
+TCN,TCN_C1,15,F3,30,18785,87261,17568,104829,26496,16,256,True,42,False,False,False,original_train_only_scalers,train_plus_validation,False
+TCN,TCN_C1,15,F4,127,21889,87261,17568,104829,26496,4,256,True,42,False,False,False,original_train_only_scalers,train_plus_validation,False
+TCN,TCN_C1,30,F0,1,17857,87258,17568,104826,26496,5,256,True,42,False,False,False,original_train_only_scalers,train_plus_validation,False
+TCN,TCN_C1,30,F1,16,18337,87258,17568,104826,26496,9,256,True,42,False,False,False,original_train_only_scalers,train_plus_validation,False
+TCN,TCN_C1,30,F2,21,18497,87258,17568,104826,26496,5,256,True,42,False,False,False,original_train_only_scalers,train_plus_validation,False
+TCN,TCN_C1,30,F3,30,18785,87258,17568,104826,26496,12,256,True,42,False,False,False,original_train_only_scalers,train_plus_validation,False
+TCN,TCN_C1,30,F4,127,21889,87258,17568,104826,26496,1,256,True,42,False,False,False,original_train_only_scalers,train_plus_validation,False
+TCN,TCN_C1,60,F0,1,17857,87252,17568,104820,26496,10,256,True,42,False,False,False,original_train_only_scalers,train_plus_validation,False
+TCN,TCN_C1,60,F1,16,18337,87252,17568,104820,26496,7,256,True,42,False,False,False,original_train_only_scalers,train_plus_validation,False
+TCN,TCN_C1,60,F2,21,18497,87252,17568,104820,26496,9,256,True,42,False,False,False,original_train_only_scalers,train_plus_validation,False
+TCN,TCN_C1,60,F3,30,18785,87252,17568,104820,26496,9,256,True,42,False,False,False,original_train_only_scalers,train_plus_validation,False
+TCN,TCN_C1,60,F4,127,21889,87252,17568,104820,26496,1,256,True,42,False,False,False,original_train_only_scalers,train_plus_validation,False

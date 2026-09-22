@@ -1,0 +1,67 @@
+{
+  "leakage_protocol": {
+    "sequence_timesteps": 13,
+    "sequence_channels": 9,
+    "history_minutes": 60,
+    "sample_interval_minutes": 5,
+    "sequence_endpoint": "forecast_issue_time_t",
+    "contains_observations_after_issue_time": false,
+    "future_same_time_GHI_or_POA_used": false,
+    "temporal_convolution_padding": "causal",
+    "temporal_convolution_stride": 1,
+    "pooling_used": false,
+    "forecast_representation": "last_causal_sequence_position",
+    "architecture_selection_horizon_minutes": 60,
+    "architecture_selection_feature_family": "F0",
+    "architecture_selection_uses_test": false,
+    "final_test_used_for_hyperparameter_selection": false
+  },
+  "architecture_selection_protocol": {
+    "model_family": "TCN",
+    "selection_horizon_minutes": 60,
+    "selection_feature_family": "F0",
+    "candidate_count": 4,
+    "maximum_epochs": 80,
+    "batch_size": 256,
+    "optimizer": "Adam",
+    "learning_rate": 0.001,
+    "clipnorm": 1.0,
+    "training_loss": "standardized_MAE",
+    "early_stopping_patience": 8,
+    "early_stopping_min_delta": 0.0001,
+    "restore_best_weights": true,
+    "shuffle": true,
+    "random_seed": 42,
+    "ranking_primary": "validation_MAE_kW",
+    "ranking_secondary": "validation_RMSE_kW",
+    "ranking_tertiary": "fewer_trainable_parameters",
+    "test_used": false
+  },
+  "prepared_data_discovery": {
+    "train_sequence": [
+      "bilstm_preflight_sequence",
+      "bilstm_preflight_train_data['sequence']",
+      "gru_arch_train['sequence']",
+      "gru_arch_train_data['sequence']",
+      "train_data['sequence']",
+      "train_sequence",
+      "train_sequence_float64",
+      "training_scaled_sequence"
+    ],
+    "validation_sequence": [
+      "gru_arch_validation['sequence']",
+      "gru_arch_validation_data['sequence']",
+      "validation_data['sequence']"
+    ],
+    "train_F0_auxiliary": [
+      "bilstm_preflight_auxiliary",
+      "bilstm_preflight_train_data['auxiliary']",
+      "gru_arch_train['auxiliary']",
+      "gru_arch_train_data['auxiliary']"
+    ],
+    "validation_F0_auxiliary": [
+      "gru_arch_validation['auxiliary']",
+      "gru_arch_validation_data['auxiliary']"
+    ]
+  }
+}

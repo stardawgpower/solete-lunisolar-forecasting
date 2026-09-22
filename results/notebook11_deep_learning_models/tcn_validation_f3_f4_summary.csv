@@ -1,0 +1,4 @@
+horizon_minutes,F3_validation_MAE_kW,F4_validation_MAE_kW,F3_to_F4_validation_MAE_improvement_pct,positive_means,test_used
+15,0.41733687293362104,0.391736470011927,6.134229822957882,F4_lower_validation_MAE,False
+30,0.42673839731418023,0.46337179237255294,-8.584508750310997,F4_lower_validation_MAE,False
+60,0.5457324410122665,0.5929444886706624,-8.651134532303667,F4_lower_validation_MAE,False

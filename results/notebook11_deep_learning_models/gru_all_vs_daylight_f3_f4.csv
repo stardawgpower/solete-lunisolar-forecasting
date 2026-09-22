@@ -1,0 +1,4 @@
+horizon_minutes,F3_to_F4_all_row_MAE_improvement_pct,F3_to_F4_daylight_MAE_improvement_pct,F4_lower_daylight_MAE_than_F3
+15,-7.590038590981059,-1.2363109315516387,False
+30,-5.464907201284336,-8.568435149208709,False
+60,-4.489917102146005,-5.1032828804731905,False

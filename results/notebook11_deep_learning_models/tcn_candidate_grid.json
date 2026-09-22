@@ -1,0 +1,59 @@
+[
+  {
+    "candidate_id": "TCN_C1",
+    "filters": 32,
+    "kernel_size": 3,
+    "dilations": [
+      1,
+      2,
+      4
+    ],
+    "convolutions_per_block": 2,
+    "dropout": 0.0,
+    "fusion_dense_units": 32,
+    "receptive_field_timesteps": 29
+  },
+  {
+    "candidate_id": "TCN_C2",
+    "filters": 64,
+    "kernel_size": 3,
+    "dilations": [
+      1,
+      2,
+      4
+    ],
+    "convolutions_per_block": 2,
+    "dropout": 0.0,
+    "fusion_dense_units": 32,
+    "receptive_field_timesteps": 29
+  },
+  {
+    "candidate_id": "TCN_C3",
+    "filters": 64,
+    "kernel_size": 2,
+    "dilations": [
+      1,
+      2,
+      4
+    ],
+    "convolutions_per_block": 2,
+    "dropout": 0.0,
+    "fusion_dense_units": 32,
+    "receptive_field_timesteps": 15
+  },
+  {
+    "candidate_id": "TCN_C4",
+    "filters": 64,
+    "kernel_size": 3,
+    "dilations": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "convolutions_per_block": 2,
+    "dropout": 0.0,
+    "fusion_dense_units": 32,
+    "receptive_field_timesteps": 61
+  }
+]

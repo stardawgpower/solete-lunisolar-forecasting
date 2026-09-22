@@ -1,0 +1,48 @@
+{
+  "model": "BiLSTM",
+  "candidate_config": {
+    "candidate_id": "RNN_C2",
+    "units": 64,
+    "n_recurrent_layers": 1,
+    "dropout": 0.0,
+    "fusion_dense_units": 32
+  },
+  "architecture_selection": {
+    "horizon_minutes": 60,
+    "feature_family": "F0",
+    "selection_dataset": "validation",
+    "test_used": false
+  },
+  "frozen_epochs": {
+    "15_F0": 6,
+    "15_F1": 5,
+    "15_F2": 2,
+    "15_F3": 4,
+    "15_F4": 2,
+    "30_F0": 16,
+    "30_F1": 7,
+    "30_F2": 3,
+    "30_F3": 17,
+    "30_F4": 3,
+    "60_F0": 6,
+    "60_F1": 6,
+    "60_F2": 6,
+    "60_F3": 5,
+    "60_F4": 4
+  },
+  "batch_size": 256,
+  "shuffle": true,
+  "seed": 42,
+  "final_refit_population": "train_plus_validation",
+  "scaler_policy": "original_train_only_scalers",
+  "final_refit_callbacks": false,
+  "final_refit_validation_data": false,
+  "prediction_clipping": false,
+  "sequence_timesteps": 13,
+  "sequence_channels": 9,
+  "sequence_endpoint": "forecast issue time t",
+  "bidirectional_scope": "historical sequence only",
+  "contains_future_observations": false,
+  "test_rows_per_horizon": 26496,
+  "test_evaluations_completed_at_protocol_freeze": 0
+}

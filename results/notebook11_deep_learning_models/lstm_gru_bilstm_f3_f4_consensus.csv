@@ -1,0 +1,7 @@
+horizon_minutes,scope,n_models,n_positive_point_estimates,n_negative_point_estimates,point_estimate_consensus,n_CIs_entirely_above_zero,n_CIs_entirely_below_zero,n_CIs_crossing_zero,CI_consensus
+15,all,3,1,2,mixed_architecture_directions,0,1,2,no_three_model_CI_consensus
+15,daylight,3,1,2,mixed_architecture_directions,1,1,1,no_three_model_CI_consensus
+30,all,3,2,1,mixed_architecture_directions,2,1,0,no_three_model_CI_consensus
+30,daylight,3,2,1,mixed_architecture_directions,2,1,0,no_three_model_CI_consensus
+60,all,3,0,3,all_three_F4_higher_MAE,0,2,1,no_three_model_CI_consensus
+60,daylight,3,1,2,mixed_architecture_directions,1,2,0,no_three_model_CI_consensus

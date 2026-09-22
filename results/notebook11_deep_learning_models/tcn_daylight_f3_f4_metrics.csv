@@ -1,0 +1,7 @@
+model,horizon_minutes,subset,daylight_definition,feature_family,n_test,n_daylight,MAE_kW,RMSE_kW,R2,prediction_clipping
+TCN,15,daylight,valid_time_solar_elevation_gt_0_deg,F3,26496,17851,0.669268151902869,0.9212081341838486,0.7156832819670402,False
+TCN,15,daylight,valid_time_solar_elevation_gt_0_deg,F4,26496,17851,0.5474734387159669,0.8047592718311019,0.7830204285507812,False
+TCN,30,daylight,valid_time_solar_elevation_gt_0_deg,F3,26496,17851,0.9295717152455792,1.3472726097653556,0.3918680368916577,False
+TCN,30,daylight,valid_time_solar_elevation_gt_0_deg,F4,26496,17851,0.61026608075071,0.929678332963675,0.7104308522270719,False
+TCN,60,daylight,valid_time_solar_elevation_gt_0_deg,F3,26496,17851,0.7023940451067114,0.9825874540197173,0.6765335082033235,False
+TCN,60,daylight,valid_time_solar_elevation_gt_0_deg,F4,26496,17851,1.0038366503031484,1.3883309154628747,0.35423744514481914,False

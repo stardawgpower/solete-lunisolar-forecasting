@@ -1,0 +1,2 @@
+model,candidate_id,horizon_minutes,feature_family,auxiliary_dim,trainable_parameter_count,n_train,n_validation,n_trainval,n_test,frozen_best_epoch,final_epochs_trained,test_MAE_kW,test_RMSE_kW,test_R2,final_fit_seconds,prediction_clipping,scaler_policy,refit_population
+GRU,RNN_C2,60,F3,30,17473,87252,17568,104820,26496,5,5,0.446411233567848,0.8177608663780962,0.7545635542627835,23.57111999997869,False,original_train_only_scalers,train_plus_validation

@@ -1,0 +1,2 @@
+model,candidate_id,horizon_minutes,feature_family,auxiliary_dim,trainable_parameter_count,n_train,n_validation,n_trainval,n_test,frozen_best_epoch,final_epochs_trained,test_MAE_kW,test_RMSE_kW,test_R2,final_fit_seconds,prediction_clipping,scaler_policy,refit_population
+TCN,TCN_C1,30,F2,21,18497,87258,17568,104826,26496,5,5,0.49908490859259586,0.7678764956599936,0.7835940715291985,70.160432707984,False,original_train_only_scalers,train_plus_validation

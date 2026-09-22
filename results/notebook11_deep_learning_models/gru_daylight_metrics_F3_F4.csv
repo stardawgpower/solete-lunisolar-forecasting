@@ -1,0 +1,7 @@
+model,horizon_minutes,feature_family,evaluation_scope,daylight_definition,n_test_rows,n_evaluation_rows,MAE_kW,RMSE_kW,R2,prediction_clipping
+GRU,15,F3,daylight,forecast-valid solar elevation > 0 degrees,26496,17851,0.41154631643170725,0.7450510824081354,0.8140231150784873,False
+GRU,15,F4,daylight,forecast-valid solar elevation > 0 degrees,26496,17851,0.41663430853015054,0.7441649510630318,0.8144652376339434,False
+GRU,30,F3,daylight,forecast-valid solar elevation > 0 degrees,26496,17851,0.5333280115758866,0.8804023909590593,0.740313546249763,False
+GRU,30,F4,daylight,forecast-valid solar elevation > 0 degrees,26496,17851,0.5790258763803308,0.9138698262502477,0.7201949519049705,False
+GRU,60,F3,daylight,forecast-valid solar elevation > 0 degrees,26496,17851,0.6207287129144909,0.9930848551004929,0.6695851280229832,False
+GRU,60,F4,daylight,forecast-valid solar elevation > 0 degrees,26496,17851,0.6524062550548377,1.0148977714732086,0.6549107212215751,False

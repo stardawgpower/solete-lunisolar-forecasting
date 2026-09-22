@@ -1,0 +1,54 @@
+{
+  "notebook": "11_deep_learning_models.ipynb",
+  "status": "COMPLETE",
+  "models": [
+    "LSTM",
+    "GRU",
+    "BiLSTM",
+    "TCN"
+  ],
+  "horizons_minutes": [
+    15,
+    30,
+    60
+  ],
+  "feature_families": [
+    "F0",
+    "F1",
+    "F2",
+    "F3",
+    "F4"
+  ],
+  "final_test_experiments": 60,
+  "test_rows_per_experiment": 26496,
+  "daylight_rows": 17851,
+  "non_daylight_rows": 8645,
+  "daylight_definition": "valid-time solar elevation > 0 degrees",
+  "bootstrap": {
+    "replicates": 10000,
+    "seed": 42,
+    "unit": "UTC forecast-valid calendar day",
+    "day_blocks": 92,
+    "pairing": "paired F3/F4",
+    "aggregation": "pooled row-weighted MAE",
+    "confidence_interval": "percentile 95%"
+  },
+  "core_comparison": "F3 -> F4",
+  "core_interpretation": "categorical Panchang representation beyond continuous lunar/Sun-Moon astronomical controls",
+  "point_estimates_F4_lower_MAE": 11,
+  "point_estimates_F4_higher_MAE": 13,
+  "bootstrap_CIs_above_zero": 10,
+  "bootstrap_CIs_below_zero": 10,
+  "bootstrap_CIs_cross_zero": 4,
+  "unanimous_point_direction_conditions": 1,
+  "all_four_CIs_same_side_zero_conditions": 0,
+  "cross_architecture_effect_size_averaging": false,
+  "prediction_clipping": false,
+  "final_refit_scaling_policy": "original TRAIN-only scalers",
+  "test_used_for_model_or_epoch_selection": false,
+  "tcn_sequence_orientation": "oldest-to-newest: t-60, t-55, ..., t",
+  "tcn_causal_sequence_reversal_required": false,
+  "final_scientific_interpretation": "F3->F4 predictive effects are architecture- and horizon-dependent; results do not support a universal F4 advantage and are not interpreted as causal physical or Vedic-calendar effects.",
+  "required_final_artifacts_verified": 24,
+  "artifact_manifest_file_count": 325
+}

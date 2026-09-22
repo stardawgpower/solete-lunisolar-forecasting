@@ -1,0 +1,5 @@
+candidate_id,probe_cut_index,earlier_output_max_abs_difference,later_output_max_abs_difference,causality_tolerance,strict_causality_test_passed
+TCN_C1,5,0.0,542.67236328125,1e-05,True
+TCN_C2,5,0.0,662.739990234375,1e-05,True
+TCN_C3,5,0.0,1170.8646240234375,1e-05,True
+TCN_C4,5,0.0,757.2855224609375,1e-05,True

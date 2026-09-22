@@ -1,0 +1,7 @@
+finding,evidence
+15-minute F3→F4,Mixed across architectures; 2 positive and 2 negative point estimates for both all-row and daylight evaluation.
+30-minute F3→F4,"LSTM, BiLSTM, and TCN favor F4 with CIs above zero; GRU favors F3 with CI below zero, in both all-row and daylight evaluation."
+60-minute all-row F3→F4,"All four point estimates favor F3; GRU, BiLSTM, and TCN CIs are below zero, while LSTM crosses zero."
+60-minute daylight F3→F4,"GRU, BiLSTM, and TCN favor F3 with CIs below zero; LSTM favors F4 with CI above zero."
+Cross-model generalization,Only 1/6 conditions has unanimous point direction; 0/6 has all four CIs on the same side of zero.
+Scientific interpretation,Panchang categorical information has architecture- and horizon-dependent predictive effects beyond continuous astronomical controls; no causal claim.

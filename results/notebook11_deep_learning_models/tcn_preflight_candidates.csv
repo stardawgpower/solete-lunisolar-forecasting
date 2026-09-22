@@ -1,0 +1,5 @@
+candidate_id,filters,kernel_size,dilations,convolutions_per_block,dropout,fusion_dense_units,receptive_field_timesteps,sequence_length_timesteps,covers_full_sequence,auxiliary_dim_for_smoke_test,trainable_parameter_count,conv1d_layer_count,all_conv_padding_causal,all_conv_stride_one
+TCN_C1,32,3,"[1, 2, 4]",2,0.0,32,29,13,True,1,17857,7,True,True
+TCN_C2,64,3,"[1, 2, 4]",2,0.0,32,29,13,True,1,66337,7,True,True
+TCN_C3,64,2,"[1, 2, 4]",2,0.0,32,15,13,True,1,45281,7,True,True
+TCN_C4,64,3,"[1, 2, 4, 8]",2,0.0,32,61,13,True,1,91041,9,True,True

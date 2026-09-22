@@ -1,0 +1,18 @@
+{
+  "model": "GRU",
+  "selection_horizon_minutes": 60,
+  "selection_feature_family": "F0",
+  "selection_rule": "validation_MAE_kW -> validation_RMSE_kW -> fewer_parameters",
+  "selected_candidate_id": "RNN_C2",
+  "selected_candidate_config": {
+    "candidate_id": "RNN_C2",
+    "units": 64,
+    "n_recurrent_layers": 1,
+    "dropout": 0.0,
+    "fusion_dense_units": 32
+  },
+  "selected_validation_MAE_kW": 0.4582174556002289,
+  "selected_validation_RMSE_kW": 0.8486383232036896,
+  "selected_trainable_parameter_count": 16545,
+  "test_used_for_selection": false
+}

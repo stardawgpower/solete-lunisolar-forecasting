@@ -1,0 +1,35 @@
+{
+  "selection_horizon_minutes": 60,
+  "selection_feature_family": "F0",
+  "selected_candidate_id": "TCN_C1",
+  "selected_architecture": {
+    "candidate_id": "TCN_C1",
+    "filters": 32,
+    "kernel_size": 3,
+    "dilations": [
+      1,
+      2,
+      4
+    ],
+    "convolutions_per_block": 2,
+    "dropout": 0.0,
+    "fusion_dense_units": 32,
+    "receptive_field_timesteps": 29
+  },
+  "validation_MAE_kW": 0.4890691525331405,
+  "validation_RMSE_kW": 0.875877810054146,
+  "validation_R2": 0.7958615474226547,
+  "best_epoch": 10,
+  "trainable_parameter_count_F0": 17857,
+  "ranking": [
+    "minimum_validation_MAE_kW",
+    "minimum_validation_RMSE_kW",
+    "fewer_trainable_parameters"
+  ],
+  "test_used": false,
+  "target_scaler_policy": "reconstructed_exactly_from_preserved_train_only_target_pair",
+  "target_scaler_source": "gru_arch_train_data[target_scaled,target_kw]",
+  "target_transform_offset_kW": 0.8388787553948235,
+  "target_transform_scale_kW": 1.5879129238435423,
+  "causal_convolutions": true
+}
