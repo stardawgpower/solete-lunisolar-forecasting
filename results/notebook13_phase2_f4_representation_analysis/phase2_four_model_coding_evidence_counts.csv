@@ -1,0 +1,5 @@
+model,F4_real_lower_MAE,comparator_lower_MAE,CI_crosses_zero
+LSTM,2,4,0
+LightGBM,2,1,3
+Ridge,0,0,6
+TCN,4,2,0

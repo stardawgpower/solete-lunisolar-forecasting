@@ -1,0 +1,13 @@
+model,comparator_type,evidence_class,comparison_count
+LSTM,circular_shift_null,CI_crosses_zero,5
+LSTM,circular_shift_null,F4_real_lower_MAE,6
+LSTM,circular_shift_null,comparator_lower_MAE,7
+LSTM,joint_row_permutation_null,CI_crosses_zero,4
+LSTM,joint_row_permutation_null,F4_real_lower_MAE,5
+LSTM,joint_row_permutation_null,comparator_lower_MAE,9
+TCN,circular_shift_null,CI_crosses_zero,5
+TCN,circular_shift_null,F4_real_lower_MAE,2
+TCN,circular_shift_null,comparator_lower_MAE,11
+TCN,joint_row_permutation_null,CI_crosses_zero,3
+TCN,joint_row_permutation_null,F4_real_lower_MAE,2
+TCN,joint_row_permutation_null,comparator_lower_MAE,13

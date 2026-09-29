@@ -1,0 +1,9 @@
+model,comparator_type,F4_real_lower_MAE,comparator_lower_MAE,CI_crosses_zero
+LSTM,circular_shift_null,6,7,5
+LSTM,joint_row_permutation_null,5,9,4
+LightGBM,circular_shift_null,6,0,12
+LightGBM,joint_row_permutation_null,6,0,12
+Ridge,circular_shift_null,8,0,10
+Ridge,joint_row_permutation_null,0,18,0
+TCN,circular_shift_null,2,11,5
+TCN,joint_row_permutation_null,2,13,3

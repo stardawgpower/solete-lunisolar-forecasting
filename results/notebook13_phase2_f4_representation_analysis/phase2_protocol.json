@@ -1,0 +1,90 @@
+{
+  "phase": "Phase 2A",
+  "notebook": "13_phase2_f4_representation_analysis.ipynb",
+  "status": "frozen_before_phase2_results",
+  "research_question": "Why does categorical Panchang representation alter PV forecasting performance differently across model architectures and forecast horizons?",
+  "mechanisms": {
+    "dimension_or_flexibility": "The F3->F4 effect is largely explained by adding a 97-dimensional categorical basis rather than by correct Panchang alignment.",
+    "aligned_structure": "Correct timestamp-aligned Panchang structure contributes predictive information beyond dimensionality alone.",
+    "coding_sensitivity": "Part of the effect, especially for linear models, may depend on the full one-hot coding convention."
+  },
+  "frozen_phase1": {
+    "resolution_minutes": 5,
+    "forecast_horizons_minutes": [
+      15,
+      30,
+      60
+    ],
+    "target": "P_Solar[kW]",
+    "feature_counts": {
+      "F0": 118,
+      "F1": 133,
+      "F2": 138,
+      "F3": 147,
+      "F4": 244
+    },
+    "panchang_indicator_count": 97,
+    "test_reuse_status": "Phase 2A is a post-Phase1 mechanistic follow-up on SOLETE. SOLETE test results are not treated as a new independent confirmatory test."
+  },
+  "core_variants": {
+    "F3": "Continuous astronomical baseline; 147 features.",
+    "F4_real": "F3 + correctly aligned 97-column Panchang one-hot block.",
+    "F4_shift_17d": "F3 + Panchang block circularly shifted 17 days within each split.",
+    "F4_shift_37d": "F3 + Panchang block circularly shifted 37 days within each split.",
+    "F4_shift_61d": "F3 + Panchang block circularly shifted 61 days within each split.",
+    "F4_perm_1301": "F3 + joint Panchang rows permuted within each split; seed 1301.",
+    "F4_perm_1302": "F3 + joint Panchang rows permuted within each split; seed 1302.",
+    "F4_perm_1303": "F3 + joint Panchang rows permuted within each split; seed 1303.",
+    "F4_reference": "F3 + reference-coded Panchang block with one canonical indicator dropped from each of the five families."
+  },
+  "component_screen": [
+    "F3_plus_tithi",
+    "F3_plus_paksha",
+    "F3_plus_karana",
+    "F3_plus_nakshatra",
+    "F3_plus_yoga"
+  ],
+  "initial_model_strata": [
+    {
+      "model": "Ridge",
+      "reason": "linear/regularized architecture; tests sensitivity to high-dimensional categorical basis"
+    },
+    {
+      "model": "LightGBM",
+      "reason": "nonlinear boosted-tree architecture"
+    },
+    {
+      "model": "LSTM",
+      "reason": "recurrent deep-learning architecture"
+    },
+    {
+      "model": "TCN",
+      "reason": "temporal-convolution architecture"
+    }
+  ],
+  "model_control_rule": "For each model and horizon, use one fixed F4-selected architecture/hyperparameter configuration across F3 and every Phase-2 representation variant. Do not retune per variant.",
+  "primary_metric": "MAE_kW",
+  "secondary_metrics": [
+    "RMSE_kW",
+    "R2"
+  ],
+  "evaluation_scopes": [
+    "all",
+    "daylight"
+  ],
+  "uncertainty": {
+    "method": "paired UTC calendar-day block bootstrap",
+    "daily_blocks": 92,
+    "replicates": 10000,
+    "seed": 42,
+    "interval": "95% percentile",
+    "model_retraining_during_bootstrap": false
+  },
+  "interpretation_guardrails": [
+    "No causal physical claim.",
+    "No universal claim that F4 is superior.",
+    "SOLETE Phase-2 analysis is mechanistic/post-hoc relative to Phase 1.",
+    "External PVOD validation will be the independent generalization step.",
+    "Do not change variant definitions after seeing Phase-2 outcomes."
+  ]
+}

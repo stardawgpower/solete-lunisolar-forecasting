@@ -1,0 +1,157 @@
+{
+  "Ridge": {
+    "15": {
+      "alpha": 0.01
+    },
+    "30": {
+      "alpha": 0.01
+    },
+    "60": {
+      "alpha": 0.01
+    }
+  },
+  "LightGBM": {
+    "15": {
+      "boosting_type": "gbdt",
+      "colsample_bytree": 0.8,
+      "deterministic": true,
+      "force_col_wise": true,
+      "learning_rate": 0.03,
+      "max_depth": -1,
+      "min_child_samples": 20,
+      "n_estimators": 300,
+      "n_jobs": -1,
+      "num_leaves": 15,
+      "objective": "regression",
+      "random_state": 42,
+      "reg_alpha": 0.0,
+      "reg_lambda": 1.0,
+      "subsample": 0.8,
+      "subsample_freq": 1,
+      "verbosity": -1
+    },
+    "30": {
+      "boosting_type": "gbdt",
+      "colsample_bytree": 0.8,
+      "deterministic": true,
+      "force_col_wise": true,
+      "learning_rate": 0.03,
+      "max_depth": -1,
+      "min_child_samples": 20,
+      "n_estimators": 300,
+      "n_jobs": -1,
+      "num_leaves": 15,
+      "objective": "regression",
+      "random_state": 42,
+      "reg_alpha": 0.0,
+      "reg_lambda": 1.0,
+      "subsample": 0.8,
+      "subsample_freq": 1,
+      "verbosity": -1
+    },
+    "60": {
+      "boosting_type": "gbdt",
+      "colsample_bytree": 0.8,
+      "deterministic": true,
+      "force_col_wise": true,
+      "learning_rate": 0.03,
+      "max_depth": -1,
+      "min_child_samples": 20,
+      "n_estimators": 300,
+      "n_jobs": -1,
+      "num_leaves": 15,
+      "objective": "regression",
+      "random_state": 42,
+      "reg_alpha": 0.0,
+      "reg_lambda": 1.0,
+      "subsample": 0.8,
+      "subsample_freq": 1,
+      "verbosity": -1
+    }
+  },
+  "LSTM": {
+    "15": {
+      "architecture": {
+        "candidate_id": "RNN_C1",
+        "units": 32,
+        "n_recurrent_layers": 1,
+        "dropout": 0.0,
+        "fusion_dense_units": 32
+      },
+      "epochs": 7
+    },
+    "30": {
+      "architecture": {
+        "candidate_id": "RNN_C1",
+        "units": 32,
+        "n_recurrent_layers": 1,
+        "dropout": 0.0,
+        "fusion_dense_units": 32
+      },
+      "epochs": 1
+    },
+    "60": {
+      "architecture": {
+        "candidate_id": "RNN_C1",
+        "units": 32,
+        "n_recurrent_layers": 1,
+        "dropout": 0.0,
+        "fusion_dense_units": 32
+      },
+      "epochs": 2
+    }
+  },
+  "TCN": {
+    "15": {
+      "architecture": {
+        "candidate_id": "TCN_C1",
+        "filters": 32,
+        "kernel_size": 3,
+        "dilations": [
+          1,
+          2,
+          4
+        ],
+        "convolutions_per_block": 2,
+        "dropout": 0.0,
+        "fusion_dense_units": 32,
+        "receptive_field_timesteps": 29
+      },
+      "epochs": 4
+    },
+    "30": {
+      "architecture": {
+        "candidate_id": "TCN_C1",
+        "filters": 32,
+        "kernel_size": 3,
+        "dilations": [
+          1,
+          2,
+          4
+        ],
+        "convolutions_per_block": 2,
+        "dropout": 0.0,
+        "fusion_dense_units": 32,
+        "receptive_field_timesteps": 29
+      },
+      "epochs": 1
+    },
+    "60": {
+      "architecture": {
+        "candidate_id": "TCN_C1",
+        "filters": 32,
+        "kernel_size": 3,
+        "dilations": [
+          1,
+          2,
+          4
+        ],
+        "convolutions_per_block": 2,
+        "dropout": 0.0,
+        "fusion_dense_units": 32,
+        "receptive_field_timesteps": 29
+      },
+      "epochs": 1
+    }
+  }
+}

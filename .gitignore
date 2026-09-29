@@ -37,3 +37,25 @@ results/notebook11_deep_learning_models/*_test_alignment.csv
 results/notebook11_deep_learning_models/*bootstrap*replicates*.csv
 results/notebook11_deep_learning_models/*bootstrap*distributions*.csv
 results/notebook11_deep_learning_models/*bootstrap*distributions*.csv.gz
+
+# External validation datasets
+external_data/
+
+# Notebook 13 — large timestamp-level classical prediction outputs
+results/notebook13_phase2_f4_representation_analysis/phase2_stage1_classical_core_predictions_*min.csv
+
+# Notebook 13 — neural core per-run artifacts
+# Keep aggregate CSV summaries in neural_core_grid_v1/, ignore individual run folders.
+results/notebook13_phase2_f4_representation_analysis/neural_core_grid_v1/*/
+
+# Notebook 13 — component classical per-run artifacts
+results/notebook13_phase2_f4_representation_analysis/component_screen/classical/*__predictions.csv
+results/notebook13_phase2_f4_representation_analysis/component_screen/classical/*__metrics.csv
+results/notebook13_phase2_f4_representation_analysis/component_screen/classical/phase2_component_classical_predictions_*min.csv
+
+# Notebook 13 — component neural per-run artifacts
+# Keep aggregate CSV summaries in component_screen/neural/, ignore individual run folders.
+results/notebook13_phase2_f4_representation_analysis/component_screen/neural/*/
+
+# Notebook 13 — transient resumable aggregate checkpoints
+results/notebook13_phase2_f4_representation_analysis/**/*_partial.csv

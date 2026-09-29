@@ -1,0 +1,5 @@
+model,scope,above_zero,below_zero,crosses_zero
+LightGBM,all,7,1,13
+LightGBM,daylight,7,1,13
+Ridge,all,4,12,5
+Ridge,daylight,4,12,5
