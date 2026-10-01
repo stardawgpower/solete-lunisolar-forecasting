@@ -1,0 +1,30 @@
+{
+  "notebook": "15_final_results_synthesis.ipynb",
+  "models_refit": false,
+  "experiments_rerun": false,
+  "source_notebooks": [
+    "12_phase1_final_synthesis.ipynb",
+    "13_phase2_f4_representation_analysis.ipynb",
+    "14_pvod_external_validation.ipynb"
+  ],
+  "final_artifact_count": 17,
+  "scientific_audit": {
+    "matched_primary_conditions": 24,
+    "exact_primary_classification_agreement": 13,
+    "same_resolved_direction": 9,
+    "solete_primary_F4_lower": 7,
+    "solete_primary_F3_lower": 10,
+    "solete_primary_crosses_zero": 7,
+    "pvod_primary_F4_lower": 8,
+    "pvod_primary_F3_lower": 6,
+    "pvod_primary_crosses_zero": 10,
+    "solete_alignment_F4_real_lower": 35,
+    "solete_alignment_control_lower": 58,
+    "solete_alignment_crosses_zero": 51,
+    "pvod_alignment_F4_real_lower": 9,
+    "pvod_alignment_control_lower": 42,
+    "pvod_alignment_crosses_zero": 93,
+    "pvod_reference_coding_crosses_zero": 24
+  },
+  "interpretation_boundary": "Results characterize forecasting representation effects, coding/alignment sensitivity, and architecture-dependent interactions. They do not establish a causal or physical effect of Panchang categories on photovoltaic generation."
+}
