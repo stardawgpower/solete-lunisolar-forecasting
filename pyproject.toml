@@ -52,6 +52,7 @@ package-dir = {"" = "src"}
 
 py-modules = [
     "astronomy_features",
+    "bootstrap",
     "data_loader",
     "evaluation",
     "feature_families",
