@@ -53,6 +53,7 @@ package-dir = {"" = "src"}
 py-modules = [
     "astronomy_features",
     "data_loader",
+    "feature_families",
     "preprocessing",
     "vedic_calendar",
 ]
