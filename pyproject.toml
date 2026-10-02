@@ -55,6 +55,7 @@ py-modules = [
     "data_loader",
     "feature_families",
     "preprocessing",
+    "representation_controls",
     "vedic_calendar",
 ]
 
