@@ -1,0 +1,44 @@
+# Direct dependencies used in the frozen research environment.
+#
+# Scientific result freeze:
+#   Git tag: research-freeze-v1
+#   Commit: d6c18db
+#
+# Python:
+#   3.12.14
+#
+# This file records direct packages and versions observed in the
+# completed research environment. It is provenance documentation,
+# not a complete transitive lock file.
+
+# Core numerical/data stack
+numpy==2.0.2
+pandas==3.0.5
+scipy==1.18.1
+h5py==3.16.0
+matplotlib==3.11.1
+
+# Astronomy and Panchang calculations
+pvlib==0.15.2
+skyfield==1.55
+pyswisseph==2.10.3.2
+
+# Classical machine learning
+scikit-learn==1.9.0
+lightgbm==4.7.0
+xgboost==3.4.1
+
+# Deep learning
+tensorflow==2.18.1
+keras==3.15.1
+
+# Apple-Silicon acceleration used in the frozen local environment
+tensorflow-metal==1.2.0 ; platform_system == "Darwin" and platform_machine == "arm64"
+
+# Notebook environment
+jupyter==1.1.1
+jupyterlab==4.6.3
+notebook==7.6.2
+ipykernel==7.3.0
+nbconvert==7.17.1
+nbclient==0.11.0

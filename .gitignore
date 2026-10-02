@@ -62,3 +62,10 @@ results/notebook13_phase2_f4_representation_analysis/**/*_partial.csv
 
 # PVOD resumable training checkpoints
 results/pvod_*_checkpoints*/
+
+# Python packaging / development artifacts
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
