@@ -58,6 +58,7 @@ py-modules = [
     "evaluation",
     "feature_families",
     "forecasting_protocol",
+    "neural_models",
     "preprocessing",
     "representation_controls",
     "vedic_calendar",
