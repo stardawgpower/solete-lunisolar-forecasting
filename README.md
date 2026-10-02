@@ -215,7 +215,7 @@ git diff --check
 At the current publication-hardening milestone:
 
 ```text
-126 passed
+128 passed
 ```
 
 ## Frozen results
