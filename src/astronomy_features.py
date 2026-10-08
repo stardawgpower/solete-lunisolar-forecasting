@@ -32,6 +32,10 @@ from skyfield.framelib import ecliptic_frame
 SOLETE_LATITUDE_DEG = 55.6867
 SOLETE_LONGITUDE_DEG = 12.0985
 
+# Revised Notebook 07 freezes an explicit 0 m computational
+# convention because a verified site altitude was not available.
+SOLETE_SOLAR_ALTITUDE_CONVENTION_M = 0.0
+
 # ============================================================================
 # ASTRONOMICAL TIME CONVENTION
 # ============================================================================
@@ -321,7 +325,9 @@ def solar_position_spa(
         time=reference_times,
         latitude=SOLETE_LATITUDE_DEG,
         longitude=SOLETE_LONGITUDE_DEG,
+        altitude=SOLETE_SOLAR_ALTITUDE_CONVENTION_M,
         method="nrel_numpy",
+        delta_t=None,
     )
 
     # Preserve the original SOLETE timestamps rather than the +2 min

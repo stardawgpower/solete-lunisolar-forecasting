@@ -27,11 +27,11 @@ For ayanamsha-dependent quantities, the project uses:
     SIDM_LAHIRI
     get_ayanamsa_ex_ut()
 
-with nutation included.
+with nutation explicitly excluded via `FLG_NONUT`.
 
 Canonical sidereal longitude is constructed as:
 
-    tropical longitude - extended Lahiri ayanamsha
+    tropical longitude - standard Lahiri-NONUT ayanamsha
 
 wrapped into [0, 360).
 
@@ -52,10 +52,10 @@ import swisseph as swe
 
 LAHIRI_SIDEREAL_MODE = swe.SIDM_LAHIRI
 
-# Requested Swiss Ephemeris flag for the extended ayanamsha calculation.
+# Canonical Swiss Ephemeris flags for standard Lahiri with NONUT.
 # The actual returned calculation flag should still be retained/checked
 # when the calculation is performed.
-LAHIRI_AYANAMSHA_FLAGS = swe.FLG_SWIEPH
+LAHIRI_AYANAMSHA_FLAGS = swe.FLG_SWIEPH | swe.FLG_NONUT
 
 # ============================================================================
 # PANCHANG ANGULAR CONSTANTS
@@ -471,11 +471,13 @@ def karana_progress_from_phase(
 # LAHIRI SIDEREAL TRANSFORMATION
 # ============================================================================
 
+# Historical helper name retained for compatibility with earlier code.
+# Its implementation now follows the frozen standard Lahiri + FLG_NONUT convention.
 def lahiri_ayanamsha_extended_deg(
     julian_day_ut: float,
 ) -> tuple[float, int]:
     """
-    Compute the canonical extended Lahiri ayanamsha for one UT Julian day.
+    Compute the canonical standard Lahiri-NONUT ayanamsha for one UT Julian day.
 
     Parameters
     ----------
@@ -487,7 +489,7 @@ def lahiri_ayanamsha_extended_deg(
     tuple[float, int]
         A two-element tuple containing:
 
-        1. extended Lahiri ayanamsha in degrees;
+        1. standard Lahiri-NONUT ayanamsha in degrees;
         2. Swiss Ephemeris return flags.
 
     Scientific convention
@@ -496,11 +498,9 @@ def lahiri_ayanamsha_extended_deg(
 
         swe.SIDM_LAHIRI
         swe.get_ayanamsa_ex_ut()
-        swe.FLG_SWIEPH
+        swe.FLG_SWIEPH | swe.FLG_NONUT
 
-    without FLG_NONUT.
-
-    Therefore the returned extended ayanamsha includes nutation.
+    Therefore the returned standard Lahiri ayanamsha excludes the nutation contribution.
 
     This is the canonical convention validated in Notebook 08 for
     transforming Skyfield apparent tropical ecliptic longitudes into
@@ -526,7 +526,7 @@ def lahiri_ayanamsha_extended_deg(
 def lahiri_ayanamsha_for_utc_times(
     timestamps: pd.DatetimeIndex,
 ) -> np.ndarray:
-    """Compute canonical extended Lahiri ayanamsha for UTC timestamps."""
+    """Compute canonical standard Lahiri-NONUT ayanamsha for UTC timestamps."""
 
     if timestamps.tz is None:
         raise ValueError(
@@ -601,7 +601,7 @@ def sidereal_longitude_from_tropical(
 
         ayanamsha
         =
-        extended Lahiri ayanamsha from get_ayanamsa_ex_ut()
+        standard Lahiri-NONUT ayanamsha from get_ayanamsa_ex_ut()
     """
 
     return wrap_degrees(
@@ -802,7 +802,7 @@ def nakshatra_number_from_tropical_moon(
         Moon's apparent tropical ecliptic longitude in degrees.
 
     ayanamsha_deg
-        Canonical extended Lahiri ayanamsha in degrees.
+        Canonical standard Lahiri-NONUT ayanamsha in degrees.
 
     Returns
     -------
@@ -912,7 +912,7 @@ def yoga_angle_from_tropical_longitudes(
         Moon's apparent tropical ecliptic longitude in degrees.
 
     ayanamsha_deg
-        Canonical extended Lahiri ayanamsha in degrees.
+        Canonical standard Lahiri-NONUT ayanamsha in degrees.
 
     Returns
     -------
@@ -1119,7 +1119,7 @@ def yoga_number_from_tropical_longitudes(
         Moon's apparent tropical ecliptic longitude in degrees.
 
     ayanamsha_deg
-        Canonical extended Lahiri ayanamsha in degrees.
+        Canonical standard Lahiri-NONUT ayanamsha in degrees.
 
     Returns
     -------
@@ -1161,7 +1161,7 @@ def yoga_name_from_tropical_longitudes(
         Moon's apparent tropical ecliptic longitude in degrees.
 
     ayanamsha_deg
-        Canonical extended Lahiri ayanamsha in degrees.
+        Canonical standard Lahiri-NONUT ayanamsha in degrees.
 
     Returns
     -------
@@ -1210,7 +1210,7 @@ def build_panchang_f4_raw(
         longitude in degrees.
 
     ayanamsha_deg
-        Pandas Series containing the canonical extended Lahiri
+        Pandas Series containing the canonical standard Lahiri-NONUT
         ayanamsha in degrees.
 
     Returns
@@ -1243,7 +1243,7 @@ def build_panchang_f4_raw(
     longitude difference. A common ayanamsha would cancel from this
     difference.
 
-    Nakshatra and Yoga use the canonical extended Lahiri ayanamsha.
+    Nakshatra and Yoga use the canonical standard Lahiri-NONUT ayanamsha.
     """
 
     # ------------------------------------------------------------------------
