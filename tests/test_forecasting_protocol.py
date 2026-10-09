@@ -4,7 +4,9 @@ import pytest
 
 from feature_families import FEATURE_FAMILY_COUNTS
 from forecasting_protocol import (
+    CV_FOLDS,
     DAILY_LAG_STEPS,
+    EXPECTED_CV_COUNTS_BY_HORIZON,
     F0_FEATURE_COLUMNS,
     F0_HISTORY_SOURCES,
     FORECAST_HORIZONS,
@@ -20,6 +22,9 @@ from forecasting_protocol import (
     build_f0_history,
     build_forecast_targets,
     build_modelling_bundle,
+    make_rolling_origin_masks,
+    terminal_holdout_mask,
+    validate_rolling_origin_counts,
     validate_solete_5min_index,
 )
 
@@ -541,3 +546,83 @@ def test_modelling_bundle_rejects_wrong_feature_dimension():
             feature_tables,
             solar,
         )
+
+
+# Notebook 09 revised protocol tests. Earlier tests above protect the legacy
+# single-validation API for reproducibility of historical artifacts only.
+
+
+def make_notebook09_valid_times(horizon_minutes):
+    # 131617 source rows inclusive of endpoints; F0 becomes complete after
+    # 288 lag steps and forecast targets need h/5 further observed rows.
+    full = pd.date_range(
+        "2018-06-01 00:00:00",
+        "2019-09-01 00:00:00",
+        freq="5min",
+        tz="UTC",
+    )
+    steps = FORECAST_HORIZONS[horizon_minutes]
+    issue = full[DAILY_LAG_STEPS:len(full) - steps]
+    valid = issue + pd.Timedelta(minutes=horizon_minutes)
+    return pd.Series(valid, index=issue, name="valid_time")
+
+
+def test_revised_cv_boundaries_and_holdout_disjoint():
+    assert len(CV_FOLDS) == 3
+    assert [spec["fold"] for spec in CV_FOLDS] == [1, 2, 3]
+    assert [spec["train_end"] for spec in CV_FOLDS] == [
+        pd.Timestamp("2018-12-01", tz="UTC"),
+        pd.Timestamp("2019-02-01", tz="UTC"),
+        pd.Timestamp("2019-04-01", tz="UTC"),
+    ]
+    assert [spec["validation_end"] for spec in CV_FOLDS] == [
+        pd.Timestamp("2019-02-01", tz="UTC"),
+        pd.Timestamp("2019-04-01", tz="UTC"),
+        TEST_START,
+    ]
+    valid = pd.Series(pd.date_range(
+        "2018-11-30 23:55:00", "2019-06-01 00:05:00",
+        freq="5min", tz="UTC",
+    ))
+    holdout = terminal_holdout_mask(valid)
+    for fold in make_rolling_origin_masks(valid):
+        assert not (fold["train_mask"] & fold["validation_mask"]).any()
+        assert not (fold["train_mask"] & holdout).any()
+        assert not (fold["validation_mask"] & holdout).any()
+
+
+@pytest.mark.parametrize("horizon", [15, 30, 60])
+def test_revised_cv_exact_counts_match_notebook09(horizon):
+    valid = make_notebook09_valid_times(horizon)
+    assert validate_rolling_origin_counts(valid, horizon) == (
+        EXPECTED_CV_COUNTS_BY_HORIZON[horizon]
+    )
+    assert int(terminal_holdout_mask(valid).sum()) == 26496
+    for spec, fold in zip(CV_FOLDS, make_rolling_origin_masks(valid), strict=True):
+        train = valid.loc[fold["train_mask"]]
+        validation = valid.loc[fold["validation_mask"]]
+        assert train.max() < validation.min()
+        assert train.max() < spec["train_end"]
+        assert validation.min() >= spec["validation_start"]
+        assert validation.max() < TEST_START
+
+
+def test_revised_cv_rejects_invalid_datetimes():
+    naive = pd.Series(pd.date_range("2019-01-01", periods=3, freq="5min"))
+    with pytest.raises(TypeError, match="timezone-aware"):
+        make_rolling_origin_masks(naive)
+    other_tz = pd.Series(pd.date_range(
+        "2019-01-01", periods=3, freq="5min", tz="Europe/Copenhagen"
+    ))
+    with pytest.raises(ValueError, match="UTC"):
+        make_rolling_origin_masks(other_tz)
+    with pytest.raises(ValueError, match="NaT"):
+        make_rolling_origin_masks(pd.Series([
+            pd.Timestamp("2019-01-01", tz="UTC"), pd.NaT
+        ]))
+
+
+def test_revised_cv_count_guard_rejects_missing_rows():
+    valid = make_notebook09_valid_times(15).iloc[1:]
+    with pytest.raises(ValueError, match="CV counts"):
+        validate_rolling_origin_counts(valid, 15)

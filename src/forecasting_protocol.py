@@ -67,6 +67,7 @@ TEST_END = pd.Timestamp(
     tz="UTC",
 )
 
+# Historical three-way split API; revised models must use CV_FOLDS.
 SPLIT_ORDER = (
     "train",
     "validation",
@@ -97,6 +98,114 @@ F0_FEATURE_COLUMNS = (
 )
 
 EXPECTED_F0_FEATURES = 118
+
+
+# Revised Notebook 09: expanding-window folds by FORECAST-VALID time.
+# The legacy VALID_START/assign_solete_split API below remains for historical
+# compatibility and MUST NOT be used for revised model selection.
+CV_FOLDS = (
+    {
+        "fold": 1,
+        "train_start": TRAIN_START,
+        "train_end": pd.Timestamp("2018-12-01", tz="UTC"),
+        "validation_start": pd.Timestamp("2018-12-01", tz="UTC"),
+        "validation_end": pd.Timestamp("2019-02-01", tz="UTC"),
+    },
+    {
+        "fold": 2,
+        "train_start": TRAIN_START,
+        "train_end": pd.Timestamp("2019-02-01", tz="UTC"),
+        "validation_start": pd.Timestamp("2019-02-01", tz="UTC"),
+        "validation_end": pd.Timestamp("2019-04-01", tz="UTC"),
+    },
+    {
+        "fold": 3,
+        "train_start": TRAIN_START,
+        "train_end": pd.Timestamp("2019-04-01", tz="UTC"),
+        "validation_start": pd.Timestamp("2019-04-01", tz="UTC"),
+        "validation_end": TEST_START,
+    },
+)
+
+# (train rows, validation rows), folds 1–3, from executed Notebook 09.
+EXPECTED_CV_COUNTS_BY_HORIZON = {
+    15: ((52413, 17856), (70269, 16992), (87261, 17568)),
+    30: ((52410, 17856), (70266, 16992), (87258, 17568)),
+    60: ((52404, 17856), (70260, 16992), (87252, 17568)),
+}
+
+
+def _validate_valid_time(valid_time: pd.Series) -> None:
+    if not isinstance(valid_time, pd.Series):
+        raise TypeError("valid_time must be a pandas Series.")
+    if not isinstance(valid_time.dtype, pd.DatetimeTZDtype):
+        raise TypeError("valid_time must contain timezone-aware datetimes.")
+    if str(valid_time.dt.tz) != "UTC":
+        raise ValueError("valid_time must use UTC.")
+    if valid_time.isna().any():
+        raise ValueError("valid_time must not contain NaT.")
+
+
+def make_rolling_origin_masks(valid_time: pd.Series) -> tuple[dict, ...]:
+    """Return fold-specific train/validation masks by forecast-valid time.
+
+    Each mask keeps the Series index. No scaling or modelling occurs here.
+    The June–August 2019 terminal holdout is excluded from all folds.
+    """
+    _validate_valid_time(valid_time)
+    output = []
+    for spec in CV_FOLDS:
+        train = (
+            valid_time.ge(spec["train_start"])
+            & valid_time.lt(spec["train_end"])
+        ).rename("train_mask")
+        validation = (
+            valid_time.ge(spec["validation_start"])
+            & valid_time.lt(spec["validation_end"])
+        ).rename("validation_mask")
+        if (train & validation).any():
+            raise RuntimeError("Fold train/validation overlap.")
+        if spec["train_end"] > spec["validation_start"]:
+            raise RuntimeError("Training/validation date ranges overlap.")
+        if spec["validation_end"] > TEST_START:
+            raise RuntimeError("Fold overlaps terminal holdout.")
+        output.append({
+            "fold": spec["fold"],
+            "train_mask": train,
+            "validation_mask": validation,
+        })
+    return tuple(output)
+
+
+def terminal_holdout_mask(valid_time: pd.Series) -> pd.Series:
+    """Return the locked June–August 2019 test mask by valid time."""
+    _validate_valid_time(valid_time)
+    return (
+        valid_time.ge(TEST_START) & valid_time.lt(TEST_END)
+    ).rename("test_mask")
+
+
+def validate_rolling_origin_counts(
+    valid_time: pd.Series,
+    horizon_minutes: int,
+) -> tuple[tuple[int, int], ...]:
+    """Check exact Notebook 09 counts on the FULL eligible horizon sample."""
+    if horizon_minutes not in EXPECTED_CV_COUNTS_BY_HORIZON:
+        raise ValueError(f"Unsupported horizon: {horizon_minutes}.")
+    folds = make_rolling_origin_masks(valid_time)
+    counts = tuple(
+        (int(f["train_mask"].sum()), int(f["validation_mask"].sum()))
+        for f in folds
+    )
+    expected = EXPECTED_CV_COUNTS_BY_HORIZON[horizon_minutes]
+    if counts != expected:
+        raise ValueError(
+            f"{horizon_minutes}-minute CV counts {counts} "
+            f"do not match Notebook 09 {expected}."
+        )
+    if int(terminal_holdout_mask(valid_time).sum()) != 26496:
+        raise ValueError("Terminal holdout must contain 26496 valid times.")
+    return counts
 
 
 def _require_columns(
@@ -377,6 +486,7 @@ def build_forecast_targets(
     return target_tables
 
 
+# Historical single-validation function, retained for old experiment APIs.
 def assign_solete_split(
     valid_time: pd.Series,
 ) -> pd.Series:
