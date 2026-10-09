@@ -7,9 +7,13 @@ from forecasting_protocol import (
     CV_FOLDS,
     DAILY_LAG_STEPS,
     EXPECTED_CV_COUNTS_BY_HORIZON,
+    EXPECTED_TERMINAL_REFIT_COUNTS_BY_HORIZON,
+    EXPECTED_UNPURGED_CV_COUNTS_BY_HORIZON,
     F0_FEATURE_COLUMNS,
     F0_HISTORY_SOURCES,
     FORECAST_HORIZONS,
+    MODEL_AVAILABILITY_GAP,
+    MODEL_AVAILABILITY_GAP_STEPS,
     MODEL_FEATURE_FAMILIES,
     RECENT_LAGS,
     TARGET_COLUMN,
@@ -23,6 +27,7 @@ from forecasting_protocol import (
     build_forecast_targets,
     build_modelling_bundle,
     make_rolling_origin_masks,
+    make_terminal_refit_mask,
     terminal_holdout_mask,
     validate_rolling_origin_counts,
     validate_solete_5min_index,
@@ -562,7 +567,7 @@ def make_notebook09_valid_times(horizon_minutes):
         tz="UTC",
     )
     steps = FORECAST_HORIZONS[horizon_minutes]
-    issue = full[DAILY_LAG_STEPS:len(full) - steps]
+    issue = full[DAILY_LAG_STEPS:len(full) - steps - 1]
     valid = issue + pd.Timedelta(minutes=horizon_minutes)
     return pd.Series(valid, index=issue, name="valid_time")
 
@@ -626,3 +631,84 @@ def test_revised_cv_count_guard_rejects_missing_rows():
     valid = make_notebook09_valid_times(15).iloc[1:]
     with pytest.raises(ValueError, match="CV counts"):
         validate_rolling_origin_counts(valid, 15)
+
+
+@pytest.mark.parametrize("horizon", [15, 30, 60])
+def test_availability_gaps_preserve_grid_and_unpurged_population(horizon):
+    valid = make_notebook09_valid_times(horizon)
+    issue = valid.index.to_series(index=valid.index)
+    original_length = len(valid)
+    assert original_length == 131617 - DAILY_LAG_STEPS - FORECAST_HORIZONS[horizon] - 1
+    assert (valid.diff().dropna() == pd.Timedelta(minutes=5)).all()
+    assert (valid - issue == pd.Timedelta(minutes=horizon)).all()
+    assert MODEL_AVAILABILITY_GAP == pd.Timedelta(minutes=60)
+    assert MODEL_AVAILABILITY_GAP_STEPS == 12
+
+    folds = make_rolling_origin_masks(valid)
+    affected_labels = pd.Series(False, index=valid.index)
+    for i, (spec, fold) in enumerate(zip(CV_FOLDS, folds, strict=True)):
+        original_train = valid.ge(spec["train_start"]) & valid.lt(spec["train_end"])
+        original_val = (
+            valid.ge(spec["validation_start"])
+            & valid.lt(spec["validation_end"])
+        )
+        removed_train = original_train & ~fold["train_mask"]
+        removed_validation = original_val & ~fold["validation_mask"]
+        assert int(removed_train.sum()) == 12
+        assert int(removed_validation.sum()) == (12 if i == 2 else 0)
+        affected_labels |= removed_train | removed_validation
+        assert int(original_train.sum()) == (
+            EXPECTED_UNPURGED_CV_COUNTS_BY_HORIZON[horizon][i][0]
+        )
+        assert int(original_val.sum()) == (
+            EXPECTED_UNPURGED_CV_COUNTS_BY_HORIZON[horizon][i][1]
+        )
+        # The oldest training label precedes the first forecast issue.
+        assert valid.loc[fold["train_mask"]].max() < issue.loc[
+            fold["validation_mask"]
+        ].min()
+        assert (fold["train_mask"] & fold["validation_mask"]).sum() == 0
+
+    # The 48 withheld uses correspond to 48 distinct development labels.
+    assert int(affected_labels.sum()) == 48
+    assert not (affected_labels & terminal_holdout_mask(valid)).any()
+
+    # No original model-ready samples are dropped or re-indexed.
+    assert len(valid) == original_length
+    assert int(terminal_holdout_mask(valid).sum()) == 26496
+    refit = make_terminal_refit_mask(valid)
+    assert int(refit.sum()) == EXPECTED_TERMINAL_REFIT_COUNTS_BY_HORIZON[horizon]
+    assert valid.loc[refit].max() < issue.loc[terminal_holdout_mask(valid)].min()
+    assert valid.loc[folds[-1]["validation_mask"]].max() < (
+        issue.loc[terminal_holdout_mask(valid)].min()
+    )
+    assert (refit & terminal_holdout_mask(valid)).sum() == 0
+
+
+def test_availability_gap_exact_boundaries():
+    valid = pd.Series(pd.DatetimeIndex([
+        "2018-11-30 22:55:00+00:00",
+        "2018-11-30 23:00:00+00:00",
+        "2018-11-30 23:55:00+00:00",
+        "2018-12-01 00:00:00+00:00",
+        "2019-05-31 22:55:00+00:00",
+        "2019-05-31 23:00:00+00:00",
+        "2019-05-31 23:55:00+00:00",
+        "2019-06-01 00:00:00+00:00",
+    ]))
+    folds = make_rolling_origin_masks(valid)
+    assert folds[0]["train_mask"].iloc[:4].tolist() == [
+        True, False, False, False
+    ]
+    assert folds[0]["validation_mask"].iloc[:4].tolist() == [
+        False, False, False, True
+    ]
+    assert folds[-1]["validation_mask"].iloc[4:].tolist() == [
+        True, False, False, False
+    ]
+    assert make_terminal_refit_mask(valid).iloc[4:].tolist() == [
+        True, False, False, False
+    ]
+    assert terminal_holdout_mask(valid).iloc[4:].tolist() == [
+        False, False, False, True
+    ]

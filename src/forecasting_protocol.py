@@ -127,11 +127,35 @@ CV_FOLDS = (
     },
 )
 
-# (train rows, validation rows), folds 1–3, from executed Notebook 09.
-EXPECTED_CV_COUNTS_BY_HORIZON = {
+# A fixed candidate model must already be fitted when its earliest validation
+# forecast is ISSUED. Target-valid labels equal to or later than that issue
+# time are unavailable. A shared 60-minute cutoff protects all three horizons.
+MODEL_AVAILABILITY_GAP = pd.Timedelta(minutes=max(FORECAST_HORIZONS))
+MODEL_AVAILABILITY_GAP_STEPS = 12
+assert MODEL_AVAILABILITY_GAP == pd.Timedelta(minutes=60)
+
+# Full unpurged populations from the executed pre-correction Notebook 09.
+# These are audit references, NOT model-selection populations.
+EXPECTED_UNPURGED_CV_COUNTS_BY_HORIZON = {
     15: ((52413, 17856), (70269, 16992), (87261, 17568)),
     30: ((52410, 17856), (70266, 16992), (87258, 17568)),
     60: ((52404, 17856), (70260, 16992), (87252, 17568)),
+}
+
+# (training, scored validation) counts after a fixed 60-minute gap.
+# Training: 12 fewer valid labels in EACH fold.
+# Validation: only the last 12 labels of fold 3 are withheld from selection,
+# ensuring selection is finalized before the first terminal test issue time.
+EXPECTED_CV_COUNTS_BY_HORIZON = {
+    15: ((52401, 17856), (70257, 16992), (87249, 17556)),
+    30: ((52398, 17856), (70254, 16992), (87246, 17556)),
+    60: ((52392, 17856), (70248, 16992), (87240, 17556)),
+}
+
+EXPECTED_TERMINAL_REFIT_COUNTS_BY_HORIZON = {
+    15: 104817,
+    30: 104814,
+    60: 104808,
 }
 
 
@@ -147,26 +171,35 @@ def _validate_valid_time(valid_time: pd.Series) -> None:
 
 
 def make_rolling_origin_masks(valid_time: pd.Series) -> tuple[dict, ...]:
-    """Return fold-specific train/validation masks by forecast-valid time.
+    """Frozen fold masks with target-label availability at forecast issue time.
 
-    Each mask keeps the Series index. No scaling or modelling occurs here.
-    The June–August 2019 terminal holdout is excluded from all folds.
+    Models are fixed at the first validation forecast issue in each fold.
+    Training excludes the last 60 minutes of target-valid labels before that
+    fold's first validation valid time. Fold 1/2 validation windows stay whole;
+    fold 3 excludes its last 60 minutes from hyperparameter SELECTION only.
+    These masks never delete observations or alter feature/target tables.
     """
     _validate_valid_time(valid_time)
     output = []
     for spec in CV_FOLDS:
+        train_cutoff = spec["validation_start"] - MODEL_AVAILABILITY_GAP
+        validation_cutoff = (
+            spec["validation_end"]
+            if spec["fold"] != 3
+            else TEST_START - MODEL_AVAILABILITY_GAP
+        )
         train = (
             valid_time.ge(spec["train_start"])
-            & valid_time.lt(spec["train_end"])
+            & valid_time.lt(train_cutoff)
         ).rename("train_mask")
         validation = (
             valid_time.ge(spec["validation_start"])
-            & valid_time.lt(spec["validation_end"])
+            & valid_time.lt(validation_cutoff)
         ).rename("validation_mask")
         if (train & validation).any():
             raise RuntimeError("Fold train/validation overlap.")
-        if spec["train_end"] > spec["validation_start"]:
-            raise RuntimeError("Training/validation date ranges overlap.")
+        if spec["train_end"] != spec["validation_start"]:
+            raise RuntimeError("Unexpected frozen fold boundary.")
         if spec["validation_end"] > TEST_START:
             raise RuntimeError("Fold overlaps terminal holdout.")
         output.append({
@@ -176,13 +209,25 @@ def make_rolling_origin_masks(valid_time: pd.Series) -> tuple[dict, ...]:
         })
     return tuple(output)
 
-
 def terminal_holdout_mask(valid_time: pd.Series) -> pd.Series:
     """Return the locked June–August 2019 test mask by valid time."""
     _validate_valid_time(valid_time)
     return (
         valid_time.ge(TEST_START) & valid_time.lt(TEST_END)
     ).rename("test_mask")
+
+
+def make_terminal_refit_mask(valid_time: pd.Series) -> pd.Series:
+    """Development labels available before the earliest terminal test issue.
+
+    Fit a final frozen model using these labels after CV hyperparameters are
+    selected. The terminal test predictions themselves retain every timestamp.
+    """
+    _validate_valid_time(valid_time)
+    return (
+        valid_time.ge(TRAIN_START)
+        & valid_time.lt(TEST_START - MODEL_AVAILABILITY_GAP)
+    ).rename("refit_mask")
 
 
 def validate_rolling_origin_counts(
@@ -202,6 +247,13 @@ def validate_rolling_origin_counts(
         raise ValueError(
             f"{horizon_minutes}-minute CV counts {counts} "
             f"do not match Notebook 09 {expected}."
+        )
+    refit_expected = EXPECTED_TERMINAL_REFIT_COUNTS_BY_HORIZON[horizon_minutes]
+    refit_count = int(make_terminal_refit_mask(valid_time).sum())
+    if refit_count != refit_expected:
+        raise ValueError(
+            f"{horizon_minutes}-minute refit count {refit_count} "
+            f"does not match {refit_expected}."
         )
     if int(terminal_holdout_mask(valid_time).sum()) != 26496:
         raise ValueError("Terminal holdout must contain 26496 valid times.")
