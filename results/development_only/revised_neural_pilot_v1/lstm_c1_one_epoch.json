@@ -1,0 +1,34 @@
+{
+  "identity": {
+    "batch_size": 128,
+    "configuration": {
+      "candidate_id": "LSTM_C1",
+      "dropout": 0.0,
+      "fusion_dense_units": 32,
+      "n_recurrent_layers": 1,
+      "units": 32
+    },
+    "data_sha256": "0a924444b67ab9a7a4bbbb2c128f99891d9e64be1a74c135d13b8488e57fda33",
+    "epochs": 1,
+    "family": "F0",
+    "horizon_minutes": 15,
+    "inner_gap_minutes": 60,
+    "inner_validation_limit": 512,
+    "model": "LSTM",
+    "numpy_version": "2.0.2",
+    "outer_fold": 1,
+    "seed": 42,
+    "source_sha256": "2a2e6a491415036342388216fca88b1263e76cc023a72bdaed20ee1ef9153b96",
+    "tensorflow_version": "2.18.1",
+    "train_limit": 2048
+  },
+  "kind": "resource-pilot-not-cv",
+  "record": {
+    "elapsed_seconds": 2.785478792153299,
+    "epochs": 1,
+    "inner_validation_rows": 512,
+    "train_rows": 2048,
+    "trainable_parameters": 6497
+  },
+  "schema_version": 1
+}
