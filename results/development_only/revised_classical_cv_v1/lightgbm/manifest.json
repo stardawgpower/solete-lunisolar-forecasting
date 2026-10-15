@@ -1,0 +1,23 @@
+{
+  "files": {
+    "lightgbm_candidate_rankings.csv": {
+      "rows": 120,
+      "sha256": "9480e78195ee0ad5488dece9cbf729fff470946a4592f9da11b6829e589e2ac7"
+    },
+    "lightgbm_fold_scores.csv": {
+      "rows": 360,
+      "sha256": "ccbf21e59c1eb29eeff78e0bd7da64deb43af3f3ae6b0526b627ee19eaa4b9ef"
+    },
+    "lightgbm_runtimes.csv": {
+      "rows": 15,
+      "sha256": "6b7458f75f540a38ef34e442e788f9c00a0322365ebe7e18ef40b5ce8b744a16"
+    },
+    "lightgbm_selected.csv": {
+      "rows": 15,
+      "sha256": "ced8c67cc170861d73c33a89ba9b969716524707e35aeed86aa34235003f222c"
+    }
+  },
+  "kind": "development-only CV metrics",
+  "note": "No predictions, raw targets, or terminal scores.",
+  "source_sha256": "82edb376eb2f68065a3531f2afadaf1ba8e46ec7b974344e8c070baea912d5e0"
+}
