@@ -56,4 +56,7 @@ def test_complete_lightgbm_cv_remains_development_only():
         assert any("Complete LightGBM rolling-CV selection: PASSED" in "".join(o.get("text", []))
                    for o in cell.get("outputs", []) if o.get("output_type") == "stream")
     assert nb["metadata"]["solete_revised_protocol"]["terminal_test_evaluated"] is False
-    assert nb["metadata"]["solete_revised_protocol"]["no_result_writes"] is True
+    # The LightGBM CV cell itself writes no artifacts (guarded above), but
+    # later Notebook 10 sections intentionally archive development-only results.
+    # Therefore the notebook-wide no_result_writes flag must be False.
+    assert nb["metadata"]["solete_revised_protocol"]["no_result_writes"] is False
