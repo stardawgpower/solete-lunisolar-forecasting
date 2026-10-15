@@ -51,6 +51,9 @@ solete_dataset/README.txt
 
 PVOD is used for external validation across ten PV stations.
 
+- **Dataset DOI (PVOD v1.0, Science Data Bank):** <https://doi.org/10.11922/sciencedb.01094>
+- **Dataset description paper:** Yao et al. (2021), *Solar Energy*, <https://doi.org/10.1016/j.solener.2021.09.050>
+
 The external dataset is not redistributed by this repository. The frozen
 validation notebook expects it locally under:
 
@@ -94,9 +97,29 @@ Deterministic future-known features are aligned to forecast-valid time.
 Observed future meteorological measurements are not treated as future-known
 predictors.
 
+### Revised SOLETE classical-model development track
+
+The revised development-CV experiment is retained **in addition to**, not as a
+replacement for, the historical executed research record:
+
+- Current development notebook: `notebooks/10_revised_classical_models.ipynb`
+- Historical robustness notebook: `notebooks/10_secondary_ml_models.ipynb` (unchanged)
+- Revised implementation: `src/revised_classical_cv.py` and
+  `src/revised_rf_checkpoint.py`
+- Development-only archives: `results/development_only/revised_classical_cv_v1/`
+
+The revised Ridge, LightGBM, and Random Forest comparison uses three expanding
+chronological validation folds with training labels available before each
+validation issue time (a maximum-horizon, 60-minute availability gap).
+Candidates are selected using development-fold MAE; the June–August 2019
+terminal holdout is excluded from revised development selection. No revised
+terminal refit or terminal evaluation has been performed. Historical
+terminal-test scores from the earlier experiment must not be presented as
+revised-protocol test results.
+
 ## Models
 
-The completed study includes classical and neural forecasting architectures:
+The completed historical study includes classical and neural forecasting architectures:
 
 - Ridge
 - Histogram Gradient Boosting
