@@ -1,0 +1,30 @@
+{
+  "files": {
+    "ridge_candidate_rankings.csv": {
+      "rows": 75,
+      "sha256": "3ce234c3db59245271d56e3dd8c8cbba65f7d2400b3dd834d4f60cdee678913a"
+    },
+    "ridge_fold_scores.csv": {
+      "rows": 225,
+      "sha256": "385908335a676096cd39e476929ce1553a284183aa9528085a1902d0f7a0bbbc"
+    },
+    "ridge_runtimes.csv": {
+      "rows": 15,
+      "sha256": "a24682c0ed204f5a2f64e361e7bdceaa5e45f3032a4877c223ef0b9dcfd4770e"
+    },
+    "ridge_selected.csv": {
+      "rows": 15,
+      "sha256": "1e9fc2e4704e13c9d33ca165c8c352465238128a5b1f8319117687c89e3a8cf8"
+    }
+  },
+  "kind": "Ridge development-only rolling-origin CV",
+  "reference_notebook_commit": "c61522d",
+  "source_files": [
+    "src/classical_models.py",
+    "src/revised_classical_cv.py",
+    "src/forecasting_protocol.py",
+    "src/revised_rf_checkpoint.py"
+  ],
+  "source_sha256": "20534a650ab6f931061e8d70ae77865302367ac7a1ddbbc32cbb580e94618fcc",
+  "terminal_test_evaluated": false
+}
