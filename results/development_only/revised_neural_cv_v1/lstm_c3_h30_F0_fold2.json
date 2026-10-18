@@ -1,0 +1,47 @@
+{
+  "identity": {
+    "batch_size": 256,
+    "config_index": 2,
+    "configuration": {
+      "candidate_id": "LSTM_C3",
+      "dropout": 0.2,
+      "fusion_dense_units": 32,
+      "n_recurrent_layers": 1,
+      "units": 64
+    },
+    "data_sha256": "4b11147f5405f36b426bd868bd600b38a4463702e71de29761f59bae5b1f2270",
+    "feature_family": "F0",
+    "horizon_minutes": 30,
+    "inner_fraction": 0.1,
+    "inner_gap_minutes": 60,
+    "max_epochs": 80,
+    "min_delta": 0.0001,
+    "model": "LSTM",
+    "numpy_version": "2.0.2",
+    "outer_fold": 2,
+    "outer_train_rows": 70254,
+    "outer_validation_rows": 16992,
+    "patience": 8,
+    "seed": 42,
+    "source_sha256": "2a96b5c047054446e9e061d9bb58fa91621e8c5d03e370bf149a047c0d0c1a36",
+    "tensorflow_version": "2.18.1"
+  },
+  "kind": "complete-candidate-single-fold-development-cv",
+  "record": {
+    "best_epoch": 10,
+    "best_inner_validation_loss_scaled": 0.09074345976114273,
+    "inner_embargo_rows": 12,
+    "inner_epochs_completed": 18,
+    "inner_selection_seconds": 56.1535330414772,
+    "inner_training_rows": 63216,
+    "inner_validation_rows": 7026,
+    "outer_prediction_seconds": 0.6174466675147414,
+    "outer_refit_seconds": 35.99205566756427,
+    "outer_training_rows": 70254,
+    "outer_validation_rows": 16992,
+    "trainable_parameters": 21089,
+    "validation_mae_kw": 0.29779888710633207,
+    "validation_rmse_kw": 0.6114220546731897
+  },
+  "schema_version": 1
+}
