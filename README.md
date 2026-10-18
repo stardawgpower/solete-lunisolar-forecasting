@@ -117,6 +117,24 @@ terminal refit or terminal evaluation has been performed. Historical
 terminal-test scores from the earlier experiment must not be presented as
 revised-protocol test results.
 
+### Revised SOLETE neural development-CV track
+
+The revised SOLETE neural experiment is maintained separately from the historical
+executed record in `notebooks/11_deep_learning_models.ipynb`:
+
+- Current development notebook: `notebooks/11_revised_neural_models.ipynb`.
+- LSTM/TCN nested expanding-window CV: 15/30/60-minute horizons, F0–F4
+  predictor families, four frozen candidate configurations per architecture,
+  and three outer folds (360 candidate-fold evaluations in total).
+- The original source-fingerprinted F0 results remain under
+  `results/development_only/revised_neural_cv_v1/`. New F1–F4 results use the
+  distinct, versioned `revised_neural_cv_v2_year_std1/` archive to handle
+  a training-constant `valid_utc_year` without dividing by zero. These
+  scaling policies and their source fingerprints must be reported separately.
+- **Research status:** revised development selection is in progress; no revised
+  terminal-holdout scoring is part of the ongoing campaign.
+- Full chronological implementation and decisions: [Neural milestones 1–6](docs/revised_neural_milestones.md).
+
 ## Models
 
 The completed historical study includes classical and neural forecasting architectures:
