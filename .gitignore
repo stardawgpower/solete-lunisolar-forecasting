@@ -69,3 +69,6 @@ build/
 dist/
 .pytest_cache/
 .ruff_cache/
+
+# Temporary development-CV training locks
+results/development_only/**/*.lock
