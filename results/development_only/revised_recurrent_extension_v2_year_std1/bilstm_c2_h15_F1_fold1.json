@@ -1,0 +1,48 @@
+{
+  "identity": {
+    "batch_size": 256,
+    "config_index": 1,
+    "configuration": {
+      "candidate_id": "BiLSTM_C2",
+      "dropout": 0.0,
+      "fusion_dense_units": 32,
+      "n_recurrent_layers": 1,
+      "units": 64
+    },
+    "data_sha256": "3acbf486272eaa58a60ffede2381d8e28f2ab4872ab2cbd8ba77dad8bc004f57",
+    "feature_family": "F1",
+    "horizon_minutes": 15,
+    "inner_fraction": 0.1,
+    "inner_gap_minutes": 60,
+    "max_epochs": 80,
+    "min_delta": 0.0001,
+    "model": "BiLSTM",
+    "numpy_version": "2.0.2",
+    "outer_fold": 1,
+    "outer_train_rows": 52401,
+    "outer_validation_rows": 17856,
+    "patience": 8,
+    "scaling_policy": "constant-valid-utc-year-training-std-one-v2",
+    "seed": 42,
+    "source_sha256": "35d6d7a74b97cb701ec5ef75fac978544f07358d94b032497c003b3e59072496",
+    "tensorflow_version": "2.18.1"
+  },
+  "kind": "complete-candidate-single-fold-development-cv-v2-year-scaling",
+  "record": {
+    "best_epoch": 8,
+    "best_inner_validation_loss_scaled": 0.08984172344207764,
+    "inner_embargo_rows": 12,
+    "inner_epochs_completed": 16,
+    "inner_selection_seconds": 465.50047624949366,
+    "inner_training_rows": 47148,
+    "inner_validation_rows": 5241,
+    "outer_prediction_seconds": 9.82061808463186,
+    "outer_refit_seconds": 237.17069270741194,
+    "outer_training_rows": 52401,
+    "outer_validation_rows": 17856,
+    "trainable_parameters": 42561,
+    "validation_mae_kw": 0.27066746125105984,
+    "validation_rmse_kw": 0.42605008845844416
+  },
+  "schema_version": 2
+}
