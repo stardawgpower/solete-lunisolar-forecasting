@@ -1,0 +1,298 @@
+{
+  "archival_rules": {
+    "do_not_modify": [
+      "notebooks/10_revised_classical_models.ipynb",
+      "notebooks/11_revised_neural_models.ipynb",
+      "notebooks/12_revised_development_synthesis.ipynb",
+      "src/forecasting_protocol.py",
+      "src/classical_models.py",
+      "src/revised_classical_cv.py",
+      "src/revised_rf_checkpoint.py",
+      "results/development_only/"
+    ],
+    "do_not_replace_legacy_notebooks_12_to_15": true
+  },
+  "archived_audit": {
+    "architectures": 7,
+    "archived_fold_scores": 1665,
+    "classical_fold_scores": 945,
+    "neural_fold_scores": 720,
+    "notebook": "notebooks/12_revised_development_synthesis.ipynb",
+    "test_data_used_for_selection": false,
+    "three_chronological_folds": true
+  },
+  "baseline_immutable_commit": "a55524c",
+  "evaluation_policy": {
+    "can_claim_fresh_independent_test": false,
+    "extra_training_authorized": false,
+    "primary_objective": "development-only selection and future independent validation",
+    "reported_metrics_when_authorized": [
+      "MAE_kW",
+      "RMSE_kW"
+    ],
+    "required_prior_to_any_new_evaluation": [
+      "commit selection lock",
+      "confirm full source/data provenance and pinned environment",
+      "separate, explicit authorization for final refit and any evaluation",
+      "report legacy exposure; do not optimize choices using historical test scores"
+    ],
+    "terminal_access_authorized": false,
+    "terminal_june_august_2019_previously_inspected_by_legacy_research": true
+  },
+  "format_version": 1,
+  "freeze_state": "PROPOSED_LOCK_NOT_YET_COMMITTED",
+  "prepared_on": "2026-10-22",
+  "record_type": "SOLETe revised development-only model selection",
+  "refit_protocol": {
+    "development_valid_time_cutoff_utc_exclusive": "2019-05-31T23:00:00Z",
+    "do_not_fit_or_score_terminal_data": true,
+    "frozen_training_seed": 42,
+    "label_availability_gap_minutes": 60,
+    "lightgbm_fixed_parameters_from_frozen_source": {
+      "boosting_type": "gbdt",
+      "colsample_bytree": 0.8,
+      "deterministic": true,
+      "force_col_wise": true,
+      "max_depth": -1,
+      "min_child_samples": 20,
+      "n_jobs": -1,
+      "objective": "regression",
+      "random_state": 42,
+      "reg_alpha": 0.0,
+      "reg_lambda": 1.0,
+      "subsample": 0.8,
+      "subsample_freq": 1,
+      "verbosity": -1
+    },
+    "mask_factory": "src.forecasting_protocol.make_terminal_refit_mask",
+    "no_validation_early_stopping": true,
+    "phase": "DESIGN_FROZEN_BUT_REFIT_NOT_PERFORMED",
+    "preprocessing": "Use existing Notebook 10 deterministic feature construction; no data-driven feature selection, new scaling or hyperparameter tuning; fit raw design matrix as done in CV",
+    "source_model_factory": "src.classical_models.build_lightgbm_model",
+    "terminal_test_window_utc_end_exclusive": "2019-09-01T00:00:00Z",
+    "terminal_test_window_utc_start_inclusive": "2019-06-01T00:00:00Z"
+  },
+  "repository": "stardawgpower/solete-lunisolar-forecasting",
+  "reproducibility": {
+    "dependencies_pinned_from_pyproject_toml": {
+      "lightgbm": "4.7.0",
+      "numpy": "2.0.2",
+      "pandas": "3.0.5",
+      "scikit-learn": "1.9.0"
+    },
+    "git_blob_shas": {
+      "src/astronomy_features.py": "04892c92072632239353a29925fd1f9c8f736d8a",
+      "src/classical_models.py": "4d94b6a0830544e9551b5cc556548ca6f8f6e64b",
+      "src/data_loader.py": "005becb5e5113c33125f86dbbcb838311a12bad8",
+      "src/feature_families.py": "a5b814dbc247efc8cde2153c7fd4ddfbaf5d2776",
+      "src/forecasting_protocol.py": "b377144381d6cb7fa8bebc7791cf6e453912260b",
+      "src/preprocessing.py": "5cf0e0431bb501188c5df3b45a053fdbd8037d7a",
+      "src/revised_classical_cv.py": "96afdf03eb07c2e60bf97a86214cec66a4456dee",
+      "src/revised_rf_checkpoint.py": "077bf372c3d16e09b077b1ffee5413718d46c661",
+      "src/vedic_calendar.py": "f8c708d2162b60f75b2deebba24934a722d71f1a"
+    },
+    "lightgbm_archive_manifest": "results/development_only/revised_classical_cv_v1/lightgbm/manifest.json",
+    "python_requires": ">=3.12,<3.13",
+    "repository_test_suite_last_reported": "272 passed (user-reported at a55524c)",
+    "rf_archive_folder": "results/development_only/revised_classical_cv_v1/random_forest/"
+  },
+  "selected_candidates": [
+    {
+      "candidate_id": "LightGBM_C1",
+      "challenger_descriptive_only": {
+        "candidate_id": "RandomForest_C3",
+        "challenger_lower_mae_on_folds": [
+          1
+        ],
+        "configuration": {
+          "max_depth": null,
+          "max_features": 0.5,
+          "min_samples_leaf": 3
+        },
+        "configuration_index_zero_based": 2,
+        "feature_family": "F2",
+        "fold_mae_kw": [
+          0.08534041595537753,
+          0.18283490859408671,
+          0.2646798048961053
+        ],
+        "fold_rmse_kw": [
+          0.3139070285639401,
+          0.47490503344568286,
+          0.5787395371084417
+        ],
+        "model": "RandomForest",
+        "unweighted_fold_mean_mae_kw": 0.17761837648185652,
+        "winner_margin_kw": 0.0002184593736277718
+      },
+      "configuration": {
+        "learning_rate": 0.03,
+        "n_estimators": 300,
+        "num_leaves": 15
+      },
+      "configuration_index_zero_based": 0,
+      "cv_selection": {
+        "fold_mae_kw": [
+          0.08759978673469027,
+          0.18074225898389631,
+          0.26385770560609967
+        ],
+        "fold_mae_sample_std_kw": 0.08817648171780537,
+        "fold_rmse_kw": [
+          0.307375476909049,
+          0.46389800871684395,
+          0.583105062392531
+        ],
+        "folds": [
+          1,
+          2,
+          3
+        ],
+        "unweighted_fold_mean_mae_kw": 0.17739991710822875,
+        "unweighted_fold_mean_rmse_kw": 0.45145951600614137
+      },
+      "feature_family": "F1",
+      "horizon_minutes": 15,
+      "model": "LightGBM",
+      "refit": {
+        "boosting_rounds": 300,
+        "early_stopping": false,
+        "fit_all_eligible_development_observations": true,
+        "training_rows_expected": 104817
+      }
+    },
+    {
+      "candidate_id": "LightGBM_C1",
+      "challenger_descriptive_only": {
+        "candidate_id": "RandomForest_C8",
+        "challenger_lower_mae_on_folds": [],
+        "configuration": {
+          "max_depth": 30,
+          "max_features": 1.0,
+          "min_samples_leaf": 3
+        },
+        "configuration_index_zero_based": 7,
+        "feature_family": "F1",
+        "fold_mae_kw": [
+          0.12083826372301462,
+          0.23678297945948334,
+          0.31765607811839025
+        ],
+        "fold_rmse_kw": [
+          0.3932469164916776,
+          0.5817015329947214,
+          0.6476989997540514
+        ],
+        "model": "RandomForest",
+        "unweighted_fold_mean_mae_kw": 0.22509244043362941,
+        "winner_margin_kw": 0.005763373292822088
+      },
+      "configuration": {
+        "learning_rate": 0.03,
+        "n_estimators": 300,
+        "num_leaves": 15
+      },
+      "configuration_index_zero_based": 0,
+      "cv_selection": {
+        "fold_mae_kw": [
+          0.11617244636071525,
+          0.23033159296934544,
+          0.3114831620923612
+        ],
+        "fold_mae_sample_std_kw": 0.09811911435014939,
+        "fold_rmse_kw": [
+          0.3680582257770419,
+          0.5419874247982343,
+          0.641462267312472
+        ],
+        "folds": [
+          1,
+          2,
+          3
+        ],
+        "unweighted_fold_mean_mae_kw": 0.21932906714080733,
+        "unweighted_fold_mean_rmse_kw": 0.5171693059625827
+      },
+      "feature_family": "F2",
+      "horizon_minutes": 30,
+      "model": "LightGBM",
+      "refit": {
+        "boosting_rounds": 300,
+        "early_stopping": false,
+        "fit_all_eligible_development_observations": true,
+        "training_rows_expected": 104814
+      }
+    },
+    {
+      "candidate_id": "LightGBM_C1",
+      "challenger_descriptive_only": {
+        "candidate_id": "RandomForest_C8",
+        "challenger_lower_mae_on_folds": [
+          1
+        ],
+        "configuration": {
+          "max_depth": 30,
+          "max_features": 1.0,
+          "min_samples_leaf": 3
+        },
+        "configuration_index_zero_based": 7,
+        "feature_family": "F1",
+        "fold_mae_kw": [
+          0.17123887217162728,
+          0.31026730965633786,
+          0.37908343237131126
+        ],
+        "fold_rmse_kw": [
+          0.4957316538843756,
+          0.6897372987699473,
+          0.7287200080860627
+        ],
+        "model": "RandomForest",
+        "unweighted_fold_mean_mae_kw": 0.2868632047330921,
+        "winner_margin_kw": 0.005912217977731171
+      },
+      "configuration": {
+        "learning_rate": 0.03,
+        "n_estimators": 300,
+        "num_leaves": 15
+      },
+      "configuration_index_zero_based": 0,
+      "cv_selection": {
+        "fold_mae_kw": [
+          0.17178604967658187,
+          0.30172590686809997,
+          0.36934100372140094
+        ],
+        "fold_mae_sample_std_kw": 0.1004026291796219,
+        "fold_rmse_kw": [
+          0.45973024802581575,
+          0.6548096440357505,
+          0.7236156859778712
+        ],
+        "folds": [
+          1,
+          2,
+          3
+        ],
+        "unweighted_fold_mean_mae_kw": 0.28095098675536095,
+        "unweighted_fold_mean_rmse_kw": 0.6127185260131458
+      },
+      "feature_family": "F2",
+      "horizon_minutes": 60,
+      "model": "LightGBM",
+      "refit": {
+        "boosting_rounds": 300,
+        "early_stopping": false,
+        "fit_all_eligible_development_observations": true,
+        "training_rows_expected": 104808
+      }
+    }
+  ],
+  "selection_rule": {
+    "candidate_search_scope": "all 555 candidates (Ridge 5, LightGBM 8, RandomForest 8, LSTM/TCN/GRU/BiLSTM each 4 across 3 horizons and 5 feature families)",
+    "new_practical_tolerance_rule": false,
+    "objective": "minimize arithmetic mean of three outer-fold validation MAEs in kW, separately per horizon",
+    "post_test_switching_forbidden": true,
+    "significance_claim": false
+  }
+}
