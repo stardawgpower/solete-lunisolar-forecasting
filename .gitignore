@@ -72,3 +72,9 @@ dist/
 
 # Temporary development-CV training locks
 results/development_only/**/*.lock
+
+# Authorized final-refit working notebooks
+notebooks/14_revised_final_model_refit_*min_working.ipynb
+
+# Locally retained fitted LightGBM model weights
+results/final_model_refits/revised_lightgbm_v1/*.txt

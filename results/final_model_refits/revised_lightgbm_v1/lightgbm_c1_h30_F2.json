@@ -1,0 +1,55 @@
+{
+  "dependencies": {
+    "lightgbm": "4.7.0",
+    "numpy": "2.0.2",
+    "pandas": "3.0.5",
+    "scikit-learn": "1.9.0"
+  },
+  "early_stopping_used": false,
+  "fit_elapsed_seconds": 7.007395333610475,
+  "fitted_boosting_iterations": 300,
+  "fitted_on_checkout_head": "fcf3c6c5620e50917ef2819ea33637191e5ccfc8",
+  "kind": "SOLETE_REVISED_FINAL_DEVELOPMENT_LIGHTGBM_REFIT",
+  "model_filename": "lightgbm_c1_h30_F2.txt",
+  "model_sha256": "e841a2aa4c2ef5a19ba3c8c9ec708eea5e878c1d2c29ea625234d259eecf6eef",
+  "model_size_bytes": 461881,
+  "platform": "macOS-26.3.1-arm64-arm-64bit",
+  "predictions_generated": false,
+  "python_version": "3.12.14",
+  "schema_version": 1,
+  "terminal_evaluated": false,
+  "training_identity": {
+    "candidate_id": "LightGBM_C1",
+    "configuration": {
+      "learning_rate": 0.03,
+      "n_estimators": 300,
+      "num_leaves": 15
+    },
+    "feature_columns": 138,
+    "feature_family": "F2",
+    "feature_schema_sha256": "6cfaaebb47ace957a7d016d8e6fd733b391bda2b0ccf8293aa076718f40b7a3c",
+    "fixed_parameters": {
+      "boosting_type": "gbdt",
+      "colsample_bytree": 0.8,
+      "deterministic": true,
+      "force_col_wise": true,
+      "max_depth": -1,
+      "min_child_samples": 20,
+      "n_jobs": -1,
+      "objective": "regression",
+      "random_state": 42,
+      "reg_alpha": 0.0,
+      "reg_lambda": 1.0,
+      "subsample": 0.8,
+      "subsample_freq": 1,
+      "verbosity": -1
+    },
+    "horizon_minutes": 30,
+    "last_label_valid_time_utc": "2019-05-31T22:55:00+00:00",
+    "lock_commit": "c6a9162",
+    "lock_sha256": "6c61307b0048e00dc54e232fef52874cf36336e8539f650dd3376fb523473d4f",
+    "model": "LightGBM",
+    "training_input_sha256": "192df78680951e88cd29ffb2211f5fc2a207f9e5c9599f24123ae5413ac55794",
+    "training_rows": 104814
+  }
+}
