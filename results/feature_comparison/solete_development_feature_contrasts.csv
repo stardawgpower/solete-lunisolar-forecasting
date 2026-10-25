@@ -1,0 +1,31 @@
+horizon_min,scope,comparison,reference,augmented,mae_reduction_kw,relative_reduction_pct
+15,all,Gregorian,F0,F1,0.0101185293462,5.39761305913
+15,all,Solar,F1,F2,-0.000906373475727,-0.511080658548
+15,all,Continuous lunar,F2,F3,-0.00255648711788,-1.43420728525
+15,all,Panchang,F3,F4,0.0016220784479,0.897130723675
+15,all,Panchang with sidereal control,F3_sidereal,F4_sidereal,-1.11176211353e-05,-0.00615206148231
+15,daylight,Gregorian,F0,F1,0.0199230252837,5.22306498788
+15,daylight,Solar,F1,F2,-0.000833370633606,-0.230518442277
+15,daylight,Continuous lunar,F2,F3,-0.0045841490492,-1.2651040225
+15,daylight,Panchang,F3,F4,0.00322302854504,0.878358575042
+15,daylight,Panchang with sidereal control,F3_sidereal,F4_sidereal,-0.000138490576826,-0.0377886607518
+30,all,Gregorian,F0,F1,0.0212031162455,8.72240904676
+30,all,Solar,F1,F2,0.00277615762158,1.25117110507
+30,all,Continuous lunar,F2,F3,-0.00366901154503,-1.67451757557
+30,all,Panchang,F3,F4,0.000878711281768,0.394434335994
+30,all,Panchang with sidereal control,F3_sidereal,F4_sidereal,0.000737100964077,0.327010115363
+30,daylight,Gregorian,F0,F1,0.0420464505283,8.45935862853
+30,daylight,Solar,F1,F2,0.00271551069363,0.596823154677
+30,daylight,Continuous lunar,F2,F3,-0.00597298298897,-1.32064216786
+30,daylight,Panchang,F3,F4,0.00172582667396,0.376611108332
+30,daylight,Panchang with sidereal control,F3_sidereal,F4_sidereal,0.00279274737029,0.602326101926
+60,all,Gregorian,F0,F1,0.0419815130306,12.781103775
+60,all,Solar,F1,F2,0.00547553240255,1.91128759667
+60,all,Continuous lunar,F2,F3,-0.00585532090635,-2.08368159881
+60,all,Panchang,F3,F4,0.00141869608185,0.494553977982
+60,all,Panchang with sidereal control,F3_sidereal,F4_sidereal,-0.000453724236036,-0.156800761074
+60,daylight,Gregorian,F0,F1,0.0762192129505,11.491037732
+60,daylight,Solar,F1,F2,-0.00415546602235,-0.707827249094
+60,daylight,Continuous lunar,F2,F3,-0.00620524802065,-1.04955079139
+60,daylight,Panchang,F3,F4,0.00381480047137,0.638530661059
+60,daylight,Panchang with sidereal control,F3_sidereal,F4_sidereal,-0.00137158438224,-0.228958088767
