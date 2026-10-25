@@ -1,0 +1,43 @@
+horizon_min,scope,comparison,reference,augmented,mae_reduction_kw,ci_lower_kw,ci_upper_kw,interpretation
+15,all,Gregorian F0 to F1,F0,F1,0.0189316020163,0.0160264272182,0.0217856054231,Augmented lower MAE
+15,all,Solar F1 to F2,F1,F2,-0.00182082773725,-0.00319597268163,-0.000465402240916,Reference lower MAE
+15,all,Continuous lunar F2 to F3,F2,F3,-0.00034648910136,-0.00118299760687,0.000497994286036,Unresolved
+15,all,Panchang F3 to F4,F3,F4,-0.00051792088737,-0.00139220479541,0.000339963325487,Unresolved
+15,all,Panchang with continuous sidereal parents,F3_sidereal,F4_sidereal,-0.00153525907284,-0.00257967838436,-0.000553223576222,Reference lower MAE
+15,all,Development-selected versus issue persistence,issue_persistence,F1,0.031962932494,0.0247609380048,0.0392699533614,Augmented lower MAE
+15,all,Development-selected versus previous-day persistence,previous_day_persistence,F1,0.320306206404,0.271655901106,0.373609303509,Augmented lower MAE
+15,daylight,Gregorian F0 to F1,F0,F1,0.0271500567663,0.0229544779526,0.0311630817867,Augmented lower MAE
+15,daylight,Solar F1 to F2,F1,F2,-0.00291419800395,-0.00487581422877,-0.000915768166363,Reference lower MAE
+15,daylight,Continuous lunar F2 to F3,F2,F3,-0.000642409107776,-0.00193768595582,0.000615353251859,Unresolved
+15,daylight,Panchang F3 to F4,F3,F4,-0.000874704309374,-0.00217342353492,0.000406164767831,Unresolved
+15,daylight,Panchang with continuous sidereal parents,F3_sidereal,F4_sidereal,-0.00210161740308,-0.00369517538495,-0.000637915694726,Reference lower MAE
+15,daylight,Development-selected versus issue persistence,issue_persistence,F1,0.0489805417758,0.0381602936746,0.0598100265162,Augmented lower MAE
+15,daylight,Development-selected versus previous-day persistence,previous_day_persistence,F1,0.477326245231,0.405417267157,0.55552782197,Augmented lower MAE
+30,all,Gregorian F0 to F1,F0,F1,0.0360924023584,0.0303077679999,0.0418592525616,Augmented lower MAE
+30,all,Solar F1 to F2,F1,F2,0.00124581520133,-0.000264126787914,0.00270672053254,Unresolved
+30,all,Continuous lunar F2 to F3,F2,F3,-0.000533843984763,-0.00201337126527,0.00103116719704,Unresolved
+30,all,Panchang F3 to F4,F3,F4,0.00168368596331,0.000451753757946,0.00292807371475,Augmented lower MAE
+30,all,Panchang with continuous sidereal parents,F3_sidereal,F4_sidereal,0.000291027580231,-0.00125992021382,0.00182228037602,Unresolved
+30,all,Development-selected versus issue persistence,issue_persistence,F2,0.0790259172734,0.0670104903444,0.0909185567548,Augmented lower MAE
+30,all,Development-selected versus previous-day persistence,previous_day_persistence,F2,0.278375553954,0.230348921101,0.330090154264,Augmented lower MAE
+30,daylight,Gregorian F0 to F1,F0,F1,0.051545163183,0.0435151453188,0.0596578420078,Augmented lower MAE
+30,daylight,Solar F1 to F2,F1,F2,0.000657712026702,-0.00162959892132,0.00282617386185,Unresolved
+30,daylight,Continuous lunar F2 to F3,F2,F3,-0.000953772200509,-0.00317068360971,0.00138227311525,Unresolved
+30,daylight,Panchang F3 to F4,F3,F4,0.00238923540067,0.000603363851717,0.00426066040407,Augmented lower MAE
+30,daylight,Panchang with continuous sidereal parents,F3_sidereal,F4_sidereal,0.000518380981352,-0.00182612107539,0.00268654886047,Unresolved
+30,daylight,Development-selected versus issue persistence,issue_persistence,F2,0.117701138549,0.0996990878159,0.135696303896,Augmented lower MAE
+30,daylight,Development-selected versus previous-day persistence,previous_day_persistence,F2,0.415335146917,0.343110246751,0.489922102557,Augmented lower MAE
+60,all,Gregorian F0 to F1,F0,F1,0.0863719623983,0.0763238374459,0.0967137502094,Augmented lower MAE
+60,all,Solar F1 to F2,F1,F2,-0.000209182845668,-0.00306790008234,0.0025699620047,Unresolved
+60,all,Continuous lunar F2 to F3,F2,F3,-0.000870400195148,-0.00421476917746,0.00225527753567,Unresolved
+60,all,Panchang F3 to F4,F3,F4,-0.000254921334444,-0.0022080489457,0.00179828249273,Unresolved
+60,all,Panchang with continuous sidereal parents,F3_sidereal,F4_sidereal,0.00244886415511,-0.000478862028723,0.00552349180131,Unresolved
+60,all,Development-selected versus issue persistence,issue_persistence,F2,0.179223174684,0.154454412818,0.202815643278,Augmented lower MAE
+60,all,Development-selected versus previous-day persistence,previous_day_persistence,F2,0.2379563768,0.190978518789,0.288903625232,Augmented lower MAE
+60,daylight,Gregorian F0 to F1,F0,F1,0.121426191379,0.107117869404,0.13536373476,Augmented lower MAE
+60,daylight,Solar F1 to F2,F1,F2,-0.00202669852914,-0.00616098538708,0.00208812998007,Unresolved
+60,daylight,Continuous lunar F2 to F3,F2,F3,-0.00161203774921,-0.00662000605885,0.00291964121648,Unresolved
+60,daylight,Panchang F3 to F4,F3,F4,-0.000131623999692,-0.00302797582213,0.00286016162633,Unresolved
+60,daylight,Panchang with continuous sidereal parents,F3_sidereal,F4_sidereal,0.00355748124449,-0.000727668313246,0.00819289341618,Unresolved
+60,daylight,Development-selected versus issue persistence,issue_persistence,F2,0.262323151715,0.225671412991,0.296970018288,Augmented lower MAE
+60,daylight,Development-selected versus previous-day persistence,previous_day_persistence,F2,0.356157590312,0.285733699506,0.432212596257,Augmented lower MAE

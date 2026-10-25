@@ -1,0 +1,31 @@
+horizon_min,scope,comparison,reference,augmented,mae_reduction_kw,relative_mae_reduction_pct
+15,all,Gregorian F0 to F1,F0,F1,0.0189316020163,6.80172907478
+15,all,Solar F1 to F2,F1,F2,-0.00182082773725,-0.701928649257
+15,all,Continuous lunar F2 to F3,F2,F3,-0.00034648910136,-0.132640423059
+15,all,Panchang F3 to F4,F3,F4,-0.00051792088737,-0.198004051867
+15,all,Panchang with continuous sidereal parents,F3_sidereal,F4_sidereal,-0.00153525907284,-0.587508216498
+15,daylight,Gregorian F0 to F1,F0,F1,0.0271500567663,6.62683337807
+15,daylight,Solar F1 to F2,F1,F2,-0.00291419800395,-0.761784756212
+15,daylight,Continuous lunar F2 to F3,F2,F3,-0.000642409107776,-0.16665911054
+15,daylight,Panchang F3 to F4,F3,F4,-0.000874704309374,-0.226545503889
+15,daylight,Panchang with continuous sidereal parents,F3_sidereal,F4_sidereal,-0.00210161740308,-0.544848141787
+30,all,Gregorian F0 to F1,F0,F1,0.0360924023584,10.6570248135
+30,all,Solar F1 to F2,F1,F2,0.00124581520133,0.411730843341
+30,all,Continuous lunar F2 to F3,F2,F3,-0.000533843984763,-0.177160111598
+30,all,Panchang F3 to F4,F3,F4,0.00168368596331,0.557755635478
+30,all,Panchang with continuous sidereal parents,F3_sidereal,F4_sidereal,0.000291027580231,0.0964919301556
+30,daylight,Gregorian F0 to F1,F0,F1,0.051545163183,10.3766319144
+30,daylight,Solar F1 to F2,F1,F2,0.000657712026703,0.147734870238
+30,daylight,Continuous lunar F2 to F3,F2,F3,-0.000953772200509,-0.214552693227
+30,daylight,Panchang F3 to F4,F3,F4,0.00238923540067,0.536311931737
+30,daylight,Panchang with continuous sidereal parents,F3_sidereal,F4_sidereal,0.000518380981352,0.116458051823
+60,all,Gregorian F0 to F1,F0,F1,0.0863719623983,20.1843196034
+60,all,Solar F1 to F2,F1,F2,-0.000209182845668,-0.0612462036104
+60,all,Continuous lunar F2 to F3,F2,F3,-0.000870400195148,-0.254686649038
+60,all,Panchang F3 to F4,F3,F4,-0.000254921334444,-0.0744027005122
+60,all,Panchang with continuous sidereal parents,F3_sidereal,F4_sidereal,0.00244886415511,0.711367806459
+60,daylight,Gregorian F0 to F1,F0,F1,0.121426191379,19.4869041931
+60,daylight,Solar F1 to F2,F1,F2,-0.00202669852914,-0.40397371018
+60,daylight,Continuous lunar F2 to F3,F2,F3,-0.00161203774921,-0.320028205914
+60,daylight,Panchang F3 to F4,F3,F4,-0.000131623999692,-0.0260471665775
+60,daylight,Panchang with continuous sidereal parents,F3_sidereal,F4_sidereal,0.00355748124449,0.700347703783
