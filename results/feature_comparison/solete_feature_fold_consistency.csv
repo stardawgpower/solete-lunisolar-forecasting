@@ -1,0 +1,91 @@
+horizon_min,fold,scope,comparison,reference,augmented,mae_reduction_kw
+15,1,all,Gregorian,F0,F1,0.00728347243555
+15,1,all,Solar,F1,F2,-0.000733263713247
+15,1,all,Continuous lunar,F2,F3,-0.00103614161795
+15,1,all,Panchang,F3,F4,0.000533148622437
+15,1,all,Panchang with sidereal control,F3_sidereal,F4_sidereal,-0.000781957473147
+15,1,daylight,Gregorian,F0,F1,0.0220732307389
+15,1,daylight,Solar,F1,F2,0.00196762019973
+15,1,daylight,Continuous lunar,F2,F3,-0.00191975563804
+15,1,daylight,Panchang,F3,F4,0.00185811649515
+15,1,daylight,Panchang with sidereal control,F3_sidereal,F4_sidereal,-0.00146785583076
+15,2,all,Gregorian,F0,F1,0.00419789258929
+15,2,all,Solar,F1,F2,0.00224104559798
+15,2,all,Continuous lunar,F2,F3,-0.00391596115226
+15,2,all,Panchang,F3,F4,0.00213272642818
+15,2,all,Panchang with sidereal control,F3_sidereal,F4_sidereal,-0.000806738233951
+15,2,daylight,Gregorian,F0,F1,0.0069876802067
+15,2,daylight,Solar,F1,F2,0.0034708122259
+15,2,daylight,Continuous lunar,F2,F3,-0.00758505766018
+15,2,daylight,Panchang,F3,F4,0.0041176727125
+15,2,daylight,Panchang with sidereal control,F3_sidereal,F4_sidereal,-0.00218931463066
+15,3,all,Gregorian,F0,F1,0.0188742230137
+15,3,all,Solar,F1,F2,-0.00422690231192
+15,3,all,Continuous lunar,F2,F3,-0.00271735858345
+15,3,all,Panchang,F3,F4,0.00220036029309
+15,3,all,Panchang with sidereal control,F3_sidereal,F4_sidereal,0.00155534284366
+15,3,daylight,Gregorian,F0,F1,0.0307081649055
+15,3,daylight,Solar,F1,F2,-0.00793854432645
+15,3,daylight,Continuous lunar,F2,F3,-0.0042476338494
+15,3,daylight,Panchang,F3,F4,0.00369329642746
+15,3,daylight,Panchang with sidereal control,F3_sidereal,F4_sidereal,0.00324169873088
+30,1,all,Gregorian,F0,F1,0.00894672716936
+30,1,all,Solar,F1,F2,0.00781225266302
+30,1,all,Continuous lunar,F2,F3,-0.00207621557857
+30,1,all,Panchang,F3,F4,-0.00218932306696
+30,1,all,Panchang with sidereal control,F3_sidereal,F4_sidereal,0.000919660538752
+30,1,daylight,Gregorian,F0,F1,0.0336959020735
+30,1,daylight,Solar,F1,F2,0.0133374209492
+30,1,daylight,Continuous lunar,F2,F3,-0.00287973242022
+30,1,daylight,Panchang,F3,F4,-0.00426543949842
+30,1,daylight,Panchang with sidereal control,F3_sidereal,F4_sidereal,0.00563304275493
+30,2,all,Gregorian,F0,F1,0.013219690494
+30,2,all,Solar,F1,F2,0.00136790474008
+30,2,all,Continuous lunar,F2,F3,-0.00264152729377
+30,2,all,Panchang,F3,F4,0.00245774741086
+30,2,all,Panchang with sidereal control,F3_sidereal,F4_sidereal,-0.000565574855719
+30,2,daylight,Gregorian,F0,F1,0.026456700144
+30,2,daylight,Solar,F1,F2,-0.00225751187033
+30,2,daylight,Continuous lunar,F2,F3,-0.00428401614842
+30,2,daylight,Panchang,F3,F4,0.00538941778313
+30,2,daylight,Panchang with sidereal control,F3_sidereal,F4_sidereal,-5.01238102796e-05
+30,3,all,Gregorian,F0,F1,0.0414429310732
+30,3,all,Solar,F1,F2,-0.000851684538297
+30,3,all,Continuous lunar,F2,F3,-0.00628929176277
+30,3,all,Panchang,F3,F4,0.00236770950144
+30,3,all,Panchang with sidereal control,F3_sidereal,F4_sidereal,0.00185721720928
+30,3,daylight,Gregorian,F0,F1,0.0659867493671
+30,3,daylight,Solar,F1,F2,-0.00293337699785
+30,3,daylight,Continuous lunar,F2,F3,-0.0107552003983
+30,3,daylight,Panchang,F3,F4,0.00405350173724
+30,3,daylight,Panchang with sidereal control,F3_sidereal,F4_sidereal,0.00279532316638
+60,1,all,Gregorian,F0,F1,0.0112621421041
+60,1,all,Solar,F1,F2,0.0171555580976
+60,1,all,Continuous lunar,F2,F3,-0.00303669557006
+60,1,all,Panchang,F3,F4,-0.00300500250579
+60,1,all,Panchang with sidereal control,F3_sidereal,F4_sidereal,-0.00415277969619
+60,1,daylight,Gregorian,F0,F1,0.0385387717633
+60,1,daylight,Solar,F1,F2,0.00985391380071
+60,1,daylight,Continuous lunar,F2,F3,0.00396115426882
+60,1,daylight,Panchang,F3,F4,-0.000357066453681
+60,1,daylight,Panchang with sidereal control,F3_sidereal,F4_sidereal,-0.00546614875675
+60,2,all,Gregorian,F0,F1,0.0364944552833
+60,2,all,Solar,F1,F2,-0.00320804664442
+60,2,all,Continuous lunar,F2,F3,0.00105861417619
+60,2,all,Panchang,F3,F4,0.00233334229986
+60,2,all,Panchang with sidereal control,F3_sidereal,F4_sidereal,-0.00135206884961
+60,2,daylight,Gregorian,F0,F1,0.0643830367849
+60,2,daylight,Solar,F1,F2,-0.0181474905213
+60,2,daylight,Continuous lunar,F2,F3,0.00210026443581
+60,2,daylight,Panchang,F3,F4,0.00412368095237
+60,2,daylight,Panchang with sidereal control,F3_sidereal,F4_sidereal,-0.00439472456985
+60,3,all,Gregorian,F0,F1,0.0781879417043
+60,3,all,Solar,F1,F2,0.00247908575452
+60,3,all,Continuous lunar,F2,F3,-0.0155878813252
+60,3,all,Panchang,F3,F4,0.00492774845149
+60,3,all,Panchang with sidereal control,F3_sidereal,F4_sidereal,0.00414367583771
+60,3,daylight,Gregorian,F0,F1,0.125735830303
+60,3,daylight,Solar,F1,F2,-0.00417282134634
+60,3,daylight,Continuous lunar,F2,F3,-0.0246771627667
+60,3,daylight,Panchang,F3,F4,0.00767778691545
+60,3,daylight,Panchang with sidereal control,F3_sidereal,F4_sidereal,0.00574612017993

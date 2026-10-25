@@ -1,0 +1,31 @@
+horizon_min,scope,comparison,reference,augmented,mae_reduction_kw,ci_lower_kw,ci_upper_kw,direction
+15,all,Gregorian,F0,F1,0.0101185293462,0.00769224840291,0.0125911458466,Added features lower MAE
+15,all,Solar,F1,F2,-0.000906373475729,-0.00261026812789,0.000906215476414,Unresolved
+15,all,Continuous lunar,F2,F3,-0.00255648711789,-0.00402475475271,-0.00123424363616,Reference features lower MAE
+15,all,Panchang,F3,F4,0.0016220784479,0.000796572641142,0.00245255705308,Added features lower MAE
+15,all,Panchang with sidereal control,F3_sidereal,F4_sidereal,-1.11176211465e-05,-0.00120959855635,0.00110778648016,Unresolved
+15,daylight,Gregorian,F0,F1,0.0199230252837,0.0142438677962,0.0257785486184,Added features lower MAE
+15,daylight,Solar,F1,F2,-0.00083337063361,-0.00450253565375,0.00306949562783,Unresolved
+15,daylight,Continuous lunar,F2,F3,-0.00458414904921,-0.00757551036098,-0.00191907190854,Reference features lower MAE
+15,daylight,Panchang,F3,F4,0.00322302854504,0.00164432507569,0.00484712300024,Added features lower MAE
+15,daylight,Panchang with sidereal control,F3_sidereal,F4_sidereal,-0.000138490576847,-0.0025847506422,0.00224137105115,Unresolved
+30,all,Gregorian,F0,F1,0.0212031162455,0.0167022442563,0.0255273529486,Added features lower MAE
+30,all,Solar,F1,F2,0.0027761576216,0.000660668046666,0.00497961131962,Added features lower MAE
+30,all,Continuous lunar,F2,F3,-0.00366901154503,-0.00581169477609,-0.00170562311765,Reference features lower MAE
+30,all,Panchang,F3,F4,0.000878711281779,-0.000572342954242,0.00231656777292,Unresolved
+30,all,Panchang with sidereal control,F3_sidereal,F4_sidereal,0.000737100964103,-0.000823410718549,0.00234338428485,Unresolved
+30,daylight,Gregorian,F0,F1,0.0420464505282,0.031055298894,0.053133522946,Added features lower MAE
+30,daylight,Solar,F1,F2,0.00271551069367,-0.00224793276111,0.00777031255126,Unresolved
+30,daylight,Continuous lunar,F2,F3,-0.00597298298898,-0.0100755094225,-0.00219827841505,Reference features lower MAE
+30,daylight,Panchang,F3,F4,0.00172582667398,-0.00134803302404,0.00475022918418,Unresolved
+30,daylight,Panchang with sidereal control,F3_sidereal,F4_sidereal,0.00279274737034,-0.000587587350784,0.00610864182311,Unresolved
+60,all,Gregorian,F0,F1,0.0419815130306,0.0339876270167,0.0501587782758,Added features lower MAE
+60,all,Solar,F1,F2,0.00547553240256,0.000668582430952,0.0101776498921,Added features lower MAE
+60,all,Continuous lunar,F2,F3,-0.00585532090636,-0.0098516686299,-0.00210509207893,Reference features lower MAE
+60,all,Panchang,F3,F4,0.00141869608185,-0.000893866518824,0.00364171921089,Unresolved
+60,all,Panchang with sidereal control,F3_sidereal,F4_sidereal,-0.000453724236029,-0.00338658606343,0.0024664352894,Unresolved
+60,daylight,Gregorian,F0,F1,0.0762192129504,0.0570590033558,0.0961778882917,Added features lower MAE
+60,daylight,Solar,F1,F2,-0.00415546602233,-0.0161805633562,0.00767685848896,Unresolved
+60,daylight,Continuous lunar,F2,F3,-0.00620524802068,-0.0139855943687,0.00117440229663,Unresolved
+60,daylight,Panchang,F3,F4,0.00381480047138,-0.0012241901609,0.00875372409475,Unresolved
+60,daylight,Panchang with sidereal control,F3_sidereal,F4_sidereal,-0.00137158438222,-0.00759909184905,0.00476773885779,Unresolved
