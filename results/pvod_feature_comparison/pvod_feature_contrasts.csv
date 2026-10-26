@@ -1,0 +1,31 @@
+horizon_min,scope,comparison,reference,augmented,macro_mae_reduction_pu,relative_mae_reduction_pct
+15,all,Gregorian,F0,F1,-0.000154926387497,-0.663697724704
+15,all,Solar,F1,F2,0.000363333588437,1.54624248941
+15,all,Continuous lunar,F2,F3,-0.000946365566107,-4.09070996928
+15,all,Panchang,F3,F4,-0.000189315842913,-0.786166887719
+15,all,Panchang with continuous sidereal parents,F3_sidereal,F4_sidereal,-0.000245943303314,-1.0301117251
+15,daylight,Gregorian,F0,F1,0.000770667952027,1.94474873872
+15,daylight,Solar,F1,F2,9.25894877105e-05,0.238279688369
+15,daylight,Continuous lunar,F2,F3,-0.000857749989832,-2.21269795376
+15,daylight,Panchang,F3,F4,-0.000240605895939,-0.607243431986
+15,daylight,Panchang with continuous sidereal parents,F3_sidereal,F4_sidereal,-0.000292001498254,-0.743355358077
+30,all,Gregorian,F0,F1,0.000444213642613,1.48273913553
+30,all,Solar,F1,F2,0.000328434054936,1.11277846397
+30,all,Continuous lunar,F2,F3,-0.000672594171665,-2.30448271398
+30,all,Panchang,F3,F4,0.000239928413938,0.803539766495
+30,all,Panchang with continuous sidereal parents,F3_sidereal,F4_sidereal,-0.000210931293259,-0.72117996012
+30,daylight,Gregorian,F0,F1,0.00193050691931,3.81691437558
+30,daylight,Solar,F1,F2,0.000319245378012,0.656246451238
+30,daylight,Continuous lunar,F2,F3,-0.000714371757278,-1.47817570774
+30,daylight,Panchang,F3,F4,8.50934742577e-05,0.173510351242
+30,daylight,Panchang with continuous sidereal parents,F3_sidereal,F4_sidereal,-0.000170760575739,-0.350751288761
+60,all,Gregorian,F0,F1,0.00164367398001,4.10413099351
+60,all,Solar,F1,F2,0.000985616230256,2.56633579287
+60,all,Continuous lunar,F2,F3,-0.000935580181148,-2.50021647487
+60,all,Panchang,F3,F4,0.000560670347958,1.46177121274
+60,all,Panchang with continuous sidereal parents,F3_sidereal,F4_sidereal,0.000698943740092,1.8128088675
+60,daylight,Gregorian,F0,F1,0.00397270424158,5.99101763674
+60,daylight,Solar,F1,F2,0.000821757798734,1.31822288481
+60,daylight,Continuous lunar,F2,F3,-0.000962118378452,-1.56399932491
+60,daylight,Panchang,F3,F4,0.000541501191008,0.866697757498
+60,daylight,Panchang with continuous sidereal parents,F3_sidereal,F4_sidereal,0.000616679118973,0.985296638115
