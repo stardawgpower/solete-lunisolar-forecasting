@@ -1,0 +1,13 @@
+horizon_min,scope,selected_family,baseline,model_mae,persistence_mae,skill_pct,stage,unit
+15,all,F1,issue_persistence,0.259403536125,0.291366468619,10.9700106006,SOLETE retrospective,kW
+15,daylight,F1,issue_persistence,0.382548742303,0.431529284079,11.3504560601,SOLETE retrospective,kW
+30,all,F2,issue_persistence,0.301334188575,0.380360105848,20.7766051324,SOLETE retrospective,kW
+30,daylight,F2,issue_persistence,0.444539840617,0.562240979166,20.9342867046,SOLETE retrospective,kW
+60,all,F2,issue_persistence,0.341753365728,0.520976540412,34.4013906158,SOLETE retrospective,kW
+60,daylight,F2,issue_persistence,0.503717397222,0.766040548937,34.2440295203,SOLETE retrospective,kW
+15,all,F1,,0.0234978401463,0.026537625171,11.4546234075,PVOD retrospective,p.u.
+15,daylight,F1,,0.0388574822908,0.0455635246803,14.7180062046,PVOD retrospective,p.u.
+30,all,F2,,0.0291863404999,0.0397677961156,26.6081016533,PVOD retrospective,p.u.
+30,daylight,F2,,0.0483279324329,0.0681121897864,29.0465736244,PVOD retrospective,p.u.
+60,all,F2,,0.0374199670529,0.0644608960907,41.9493532943,PVOD retrospective,p.u.
+60,daylight,F2,,0.0615165469144,0.109496841552,43.8188845974,PVOD retrospective,p.u.

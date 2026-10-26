@@ -1,0 +1,7 @@
+horizon_min,scope,controls_checked,aligned_favored,alternatives_favored,unresolved
+15,all,6,6,0,0
+15,daylight,6,6,0,0
+30,all,6,0,1,5
+30,daylight,6,0,0,6
+60,all,6,0,0,6
+60,daylight,6,1,0,5
