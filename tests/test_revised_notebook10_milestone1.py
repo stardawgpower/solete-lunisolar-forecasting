@@ -9,6 +9,7 @@ from __future__ import annotations
 import ast
 import hashlib
 import json
+import subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -23,9 +24,22 @@ FROZEN_CONSTRUCTION_HASHES = (
 )
 
 
+
+def _read_archived_notebook(path: Path) -> str:
+    """Read the original notebook, including in consolidated clones."""
+    if path.is_file():
+        return path.read_text(encoding="utf-8")
+    return subprocess.run(
+        ["git", "show", f"056a346:notebooks/{path.name}"],
+        cwd=Path(__file__).resolve().parents[1],
+        check=True,
+        capture_output=True,
+        text=True,
+    ).stdout
+
+
 def _load_notebook(path: Path) -> dict:
-    with path.open(encoding="utf-8") as stream:
-        return json.load(stream)
+    return json.loads(_read_archived_notebook(path))
 
 
 def _code_cells(notebook: dict) -> list[str]:

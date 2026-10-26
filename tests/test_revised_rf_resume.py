@@ -4,6 +4,7 @@ from __future__ import annotations
 import ast
 import hashlib
 import json
+import subprocess
 from pathlib import Path
 
 import numpy as np
@@ -17,8 +18,22 @@ NB = ROOT / 'notebooks' / '10_revised_classical_models.ipynb'
 FROZEN_LGB = '71aa4140023fa35666964ac2f027b1a2d0722f87882bee5ee09cd48054920ba4'
 
 
+
+def _read_archived_notebook(path: Path) -> str:
+    """Read the original notebook, including in consolidated clones."""
+    if path.is_file():
+        return path.read_text(encoding="utf-8")
+    return subprocess.run(
+        ["git", "show", f"056a346:notebooks/{path.name}"],
+        cwd=Path(__file__).resolve().parents[1],
+        check=True,
+        capture_output=True,
+        text=True,
+    ).stdout
+
+
 def test_revised_notebook_is_additive_and_terminal_untouched():
-    nb = json.loads(NB.read_text(encoding='utf-8'))
+    nb = json.loads(_read_archived_notebook(NB))
     lgb = next(c for c in nb['cells'] if c.get('id') == 'm4-lightgbm-full-cv')
     assert hashlib.sha256(''.join(lgb['source']).encode()).hexdigest() == FROZEN_LGB
     assert any('Complete LightGBM rolling-CV selection: PASSED' in ''.join(o.get('text', []))

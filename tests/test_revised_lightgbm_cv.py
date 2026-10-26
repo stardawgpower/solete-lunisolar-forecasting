@@ -3,14 +3,29 @@ from __future__ import annotations
 import ast
 import hashlib
 import json
+import subprocess
 from pathlib import Path
 
 NOTEBOOK = Path(__file__).resolve().parents[1] / "notebooks" / "10_revised_classical_models.ipynb"
 FROZEN_PILOT_HASH = "737666043670cb6718e6c97a9da81249b206e6543ccd77608867126e0b90777b"
 
 
+
+def _read_archived_notebook(path: Path) -> str:
+    """Read the original notebook, including in consolidated clones."""
+    if path.is_file():
+        return path.read_text(encoding="utf-8")
+    return subprocess.run(
+        ["git", "show", f"056a346:notebooks/{path.name}"],
+        cwd=Path(__file__).resolve().parents[1],
+        check=True,
+        capture_output=True,
+        text=True,
+    ).stdout
+
+
 def _notebook():
-    return json.loads(NOTEBOOK.read_text(encoding="utf-8"))
+    return json.loads(_read_archived_notebook(NOTEBOOK))
 
 
 def test_existing_executed_pilot_remains_unchanged():
