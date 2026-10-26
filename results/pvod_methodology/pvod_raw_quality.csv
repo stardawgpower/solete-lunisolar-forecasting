@@ -1,0 +1,11 @@
+station,raw_rows,raw_duplicate_timestamps,raw_chronologically_ordered,missing_measurement_values,recorded_columns
+station00,28896,1,False,0,15
+station01,33408,0,True,0,15
+station02,30432,0,True,0,15
+station03,14688,0,True,0,15
+station04,33408,0,True,0,15
+station05,9696,0,True,0,15
+station06,31104,0,True,0,15
+station07,32928,0,True,0,15
+station08,33120,0,True,0,15
+station09,24288,0,True,0,15
