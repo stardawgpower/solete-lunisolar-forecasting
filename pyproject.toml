@@ -52,16 +52,16 @@ package-dir = {"" = "src"}
 
 py-modules = [
     "astronomy_features",
-    "bootstrap",
+    "uncertainty_bootstrap",
     "classical_models",
     "data_loader",
-    "evaluation",
+    "forecasting_metrics",
     "feature_families",
     "forecasting_protocol",
     "neural_models",
     "preprocessing",
     "pvod",
-    "representation_controls",
+    "panchang_representation_controls",
     "vedic_calendar",
 ]
 

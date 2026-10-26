@@ -8,7 +8,7 @@ from feature_families import (
     YOGA_CATEGORIES,
     encode_panchang_fixed_vocabulary,
 )
-from representation_controls import (
+from src.panchang_representation_controls import (
     CORE_244_VARIANTS,
     EXPECTED_COMPONENT_COUNTS,
     PERMUTATION_SEEDS,

@@ -1,7 +1,7 @@
 import numpy as np
 import pytest
 
-from evaluation import (
+from src.forecasting_metrics import (
     SOLETE_PV_RATED_KW,
     deep_regression_metrics_kw,
     pvod_regression_metrics,

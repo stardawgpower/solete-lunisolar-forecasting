@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from bootstrap import (
+from src.uncertainty_bootstrap import (
     BOOTSTRAP_CI_PERCENTILES,
     BOOTSTRAP_REPLICATES,
     BOOTSTRAP_SEED,
