@@ -1,0 +1,13 @@
+model,horizon_minutes,completed_fits,median_best_epoch,min_best_epoch,max_best_epoch,median_trainable_parameters
+BiLSTM,15,60,6,1,25,42721
+BiLSTM,30,60,9,1,30,42721
+BiLSTM,60,60,7,1,26,42721
+GRU,15,60,3.5,1,14,17185
+GRU,30,60,4,1,12,17185
+GRU,60,60,4,1,17,17185
+LSTM,15,60,6.5,1,22,21729
+LSTM,30,60,5,1,20,21729
+LSTM,60,60,5,1,22,21729
+TCN,15,60,2,1,42,57825
+TCN,30,60,3,1,23,57825
+TCN,60,60,2,1,17,57825
