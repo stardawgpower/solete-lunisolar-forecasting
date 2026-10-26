@@ -1,0 +1,4 @@
+horizon_minutes,model,feature_family,candidate_id,cv_mae_kw
+15,LightGBM,F1,LightGBM_C1,0.177399917108
+30,LightGBM,F2,LightGBM_C1,0.219329067141
+60,LightGBM,F2,LightGBM_C1,0.280950986755
