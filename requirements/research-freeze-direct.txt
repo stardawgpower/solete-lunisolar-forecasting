@@ -1,8 +1,8 @@
 # Direct dependencies used in the frozen research environment.
 #
-# Scientific result freeze:
-#   Git tag: research-freeze-v1
-#   Commit: d6c18db
+# Historical scientific result freeze:
+#   Commit: d6c18dba300f92ec96baaf644140e0b957ec479c
+#   Historical provenance is retained in Git commit history.
 #
 # Python:
 #   3.12.14
