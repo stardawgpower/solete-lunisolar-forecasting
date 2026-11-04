@@ -48,7 +48,8 @@ dev = [
 ]
 
 [tool.setuptools]
-package-dir = {"" = "src"}
+package-dir = {"" = "src", "src" = "src"}
+packages = ["src"]
 
 py-modules = [
     "astronomy_features",
