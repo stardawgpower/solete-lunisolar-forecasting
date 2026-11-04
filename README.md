@@ -116,13 +116,11 @@ hypothesis-testing program.
 - `results/development_only/` — frozen model-selection and training archives.
 
 Methods are implemented in `src/` and verified by tests in `tests/`.
-Historical pre-unification notebooks remain on the Git branch
-`archive/pre-unified-panchang-methodology`; historical documents in `docs/`
-retain their original experiment-stage wording as archival provenance.
-The original research freeze also remains at tag `research-freeze-v1`
-(commit `d6c18db`). Historical results were not re-estimated when notebooks
-were reorganized; only notebook filenames, Markdown headings and references
-were updated.
+Earlier methodology remains accessible through Git commit history.
+Historical documents in `docs/` retain their original experiment-stage
+wording as archival provenance. Historical results were not re-estimated
+when notebooks were reorganized; only notebook filenames, Markdown headings
+and references were updated.
 
 ## Reproducibility
 
