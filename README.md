@@ -1,143 +1,118 @@
-# Categorical Lunisolar Representations for Photovoltaic Forecasting
+# Evaluating Categorical Lunisolar Features for Short-Term Photovoltaic Forecasting
 
-This repository studies whether categorical **Panchang/lunisolar representations**
-add forecasting value beyond historical power and weather, Gregorian time, solar
-geometry, and continuous lunar geometry. Its central comparison is **F3 vs F4**;
-F0–F4 progression is reported to place the Panchang increment in context.
-Panchang features are deterministic representations, not evidence of a causal
-astronomical influence on photovoltaic generation.
+Research code and experimental results for evaluating whether **Panchang (lunisolar calendar) features** improve short-term photovoltaic (PV) power forecasts beyond historical observations, conventional calendar features, and continuous solar and lunar geometry.
 
-## Datasets and forecasting tasks
+The main comparison is **F3 versus F4**: does adding categorical Panchang features improve forecasts when the model and evaluation observations are held fixed?
 
-**SOLETE (Denmark).** Five-minute meteorological and power measurements;
-`P_Solar[kW]` is the PV-power forecasting target. Horizons are 15, 30 and 60
-minutes. Dataset: <https://doi.org/10.11583/DTU.17040767>. The SOLETE source
-files are provided separately and expected under `solete_dataset/`.
+## Study overview
 
-**PVOD (China).** Ten independent photovoltaic stations with 15-minute records;
-forecast errors use power per nominal station capacity (p.u.). Station-specific
-65/15/20 chronological divisions and gap-safe samples are retained. Dataset:
-<https://doi.org/10.11922/sciencedb.01094>; data-description paper:
-<https://doi.org/10.1016/j.solener.2021.09.050>. The source files are expected
-under `external_data/PVOD/` (`metadata.csv`, `station00.csv`–`station09.csv`).
-Source datasets are not redistributed in this repository.
-
-For **solar PV**, models are trained on the established full chronological
-populations (including night); both all-hours and daylight-only errors are
-reported, with daylight accuracy emphasized for operational interpretation.
-All-hours development-CV model selection is preserved as originally specified.
-A future **wind forecasting** task would evaluate all hours with a separate
-target, history and baselines; no wind-forecasting results are claimed here.
-
-## Nested feature representations
-
-| Family | Increment relative to prior family | SOLETE width | PVOD width |
-|---|---|---:|---:|
-| F0 | Observed historical power and meteorology | 118 | 71 |
-| F1 | Gregorian time / cyclical calendar representation | 133 | 86 |
-| F2 | Deterministic solar geometry | 138 | 91 |
-| F3 | Continuous lunar and Sun–Moon geometry | 147 | 100 |
-| F4 | Fixed one-hot Panchang categories (97 indicators) | 244 | 197 |
-
-The five Panchang components are Tithi, Paksha, Karana, Nakshatra and Yoga.
-SOLETE uses a validated timestamp +2-minute astronomical convention; PVOD uses
-exact recorded UTC timestamps and station-specific solar geometry. The sidereal
-convention is standard Lahiri with the documented non-nutating ayanamsha.
-Continuous sidereal-angle parent controls accompany the primary F3–F4 study.
-Historical observations use forecast-*issue* time; deterministic astronomical
-and calendar information uses forecast-*valid* time.
-
-## Unified, executed notebook sequence
-
-| Notebook | Scope |
+| Item | Design |
 |---|---|
-| [01](notebooks/01_data_exploration.ipynb) | SOLETE data exploration |
-| [02](notebooks/02_data_preparation.ipynb) | SOLETE data preparation |
-| [03](notebooks/03_astronomical_features.ipynb) | Gregorian, solar and continuous lunar features |
-| [04](notebooks/04_panchang_features.ipynb) | Panchang definitions and independent astronomical checks |
-| [05](notebooks/05_forecasting_dataset.ipynb) | Forecast populations, feature alignment, CV and leakage control |
-| [06](notebooks/06_classical_models.ipynb) | Archived Ridge, Random Forest and LightGBM training/CV |
-| [07](notebooks/07_neural_models.ipynb) | Archived LSTM, TCN, GRU and BiLSTM training/CV |
-| [08](notebooks/08_lightgbm_model_development.ipynb) | Fixed-LightGBM development refits across feature families |
-| [09](notebooks/09_feature_comparison.ipynb) | F0–F4 ablations and paired uncertainty |
-| [10](notebooks/10_panchang_analysis.ipynb) | Panchang alignment, coding and component controls |
-| [11](notebooks/11_solete_evaluation.ipynb) | SOLETE June–August 2019 retrospective evaluation |
-| [12](notebooks/12_solete_cross_architecture_comparison.ipynb) | Seven-architecture development synthesis and LightGBM-run reconciliation |
-| [13](notebooks/13_pvod_data_exploration.ipynb) | PVOD station-level exploratory checks |
-| [14](notebooks/14_pvod_preparation_protocol.ipynb) | PVOD splits, gaps, populations and F0–F4 audit |
-| [15](notebooks/15_pvod_evaluation.ipynb) | Station-specific PVOD retrospective evaluation |
-| [16](notebooks/16_results_summary.ipynb) | Cross-dataset synthesis |
+| Datasets | SOLETE (Denmark) and 10 PVOD stations (China) |
+| Forecast horizons | 15, 30, and 60 minutes |
+| Models | Ridge, Random Forest, LightGBM, LSTM, GRU, BiLSTM, and TCN |
+| SOLETE model selection | Three expanding chronological cross-validation folds, with a 60-minute training-label guard |
+| Feature comparisons | Fixed LightGBM configuration with matched observations |
+| Evaluation | MAE, RMSE, daylight-only results, and paired bootstrap intervals |
 
-## Model training, evaluation and inference
+The SOLETE architecture comparison covers 555 candidate configurations and 1,665 candidate-fold evaluations across the three expanding folds.
 
-Three expanding chronological SOLETE development folds use a 60-minute
-training-label availability guard. The archived development campaign compares
-**seven architectures, 555 candidate configurations and 1,665 candidate-fold
-evaluations** (three classical and four neural architectures, F0–F4, three
-horizons). Notebooks 06–07 audit the completed historical training records;
-they do not initiate a second costly training campaign. Model definitions and
-verification functions are retained in `src/`. Notebook 08 separately executes
-the fixed LightGBM C1 configuration (300 trees, 0.03 learning rate, 15 leaves)
-for matched F0–F4 and continuous-sidereal representations.
+### Feature families
 
-The frozen development-selection result is **LightGBM C1 / F1** for 15 minutes,
-and **LightGBM C1 / F2** for 30 and 60 minutes; see
-`results/development_only/revised_model_selection_lock_v1.json` and
-`results/solete_architecture_synthesis/`.
+Each feature family includes all features from the preceding family.
 
-For the key F3–F4 contrast, positive `MAE(F3) − MAE(F4)` means that adding
-categorical Panchang features lowers error. Comparisons match the horizon,
-architecture, configuration and evaluated population. The SOLETE and PVOD
-retrospective evaluations have prior historical exposure and **are not blind
-independent tests**. Cross-architecture development CV is distinct from the
-newer fixed-LightGBM run; Notebook 12 documents their non-identical scores.
+| Family | Added information | SOLETE features | PVOD features |
+|---|---|---:|---:|
+| F0 | Historical PV power and meteorology | 118 | 71 |
+| F1 | Gregorian calendar and cyclical time | 133 | 86 |
+| F2 | Solar geometry | 138 | 91 |
+| F3 | Continuous lunar and Sun–Moon geometry | 147 | 100 |
+| F4 | 97 Panchang indicators: Tithi, Paksha, Karana, Nakshatra, and Yoga | 244 | 197 |
 
-## Scientific interpretation
+Measured predictors use information available by forecast issue time; deterministic calendar and astronomy features use forecast-valid time. SOLETE astronomy uses a validated **+2-minute** timestamp convention; PVOD uses recorded UTC timestamps. Panchang sidereal coordinates follow the documented Lahiri convention.
 
-The observed Panchang effect is small or model-/horizon-/dataset-dependent; the
-results do **not** establish a universal advantage over continuous astronomical
-representations. Solar forecasting conclusions emphasize daytime metrics while
-retaining all-hours comparability with the frozen model-selection design.
-Bootstrap intervals estimate uncertainty in sampled periods and stations under
-frozen predictions, not full model-training or hyperparameter uncertainty.
-Multiple ablations are exploratory and are not a multiplicity-controlled
-hypothesis-testing program.
+## Main findings
 
-## Results and methods
+- LightGBM achieved the lowest SOLETE development errors with **F1 at 15 minutes** and **F2 at 30 and 60 minutes**.
+- Adding Panchang categories produced small, horizon-dependent improvements in some SOLETE comparisons, but **no consistent aggregate benefit on PVOD**.
+- Results depend on model architecture, forecast horizon, astronomical representation, and temporal alignment. More features do not automatically improve accuracy.
 
-- `results/model_architectures/` — classical and neural development CV audits.
-- `results/feature_comparison/` — fixed-LightGBM development predictions and F0–F4 comparisons.
-- `results/representation_controls/` — alignment, permutation, coding and component controls.
-- `results/solete_retrospective/` — SOLETE retrospective predictions and intervals.
-- `results/solete_architecture_synthesis/` — seven-architecture comparison and reconciliation.
-- `results/pvod_methodology/` — PVOD EDA, population and feature-schema audits.
-- `results/pvod_feature_comparison/` — ten-station PVOD retrospective results.
-- `results/cross_dataset_synthesis/` — cross-dataset summary tables.
-- `results/development_only/` — frozen model-selection and training archives.
+These are empirical forecasting comparisons, **not evidence that Panchang categories physically cause changes in PV output**. The later SOLETE and PVOD evaluations were historically exposed and are not claimed as untouched blind tests.
 
-Methods are implemented in `src/` and verified by tests in `tests/`.
-Earlier methodology remains accessible through Git commit history.
-Historical documents in `docs/` retain their original experiment-stage
-wording as archival provenance. Historical results were not re-estimated
-when notebooks were reorganized; only notebook filenames, Markdown headings
-and references were updated.
+## Repository structure
 
-## Reproducibility
+| Path | Purpose |
+|---|---|
+| `notebooks/01_*.ipynb`–`05_*.ipynb` | SOLETE data preparation, astronomy, Panchang features, and forecasting protocol |
+| `notebooks/06_*.ipynb`–`07_*.ipynb` | Audit completed classical and neural development-CV experiments |
+| `notebooks/08_*.ipynb`–`12_*.ipynb` | SOLETE feature comparisons, controls, retrospective evaluation, and architecture synthesis |
+| `notebooks/13_*.ipynb`–`16_*.ipynb` | PVOD preparation and evaluation, followed by cross-dataset synthesis |
+| `src/` | Reusable forecasting, model, astronomy, calendar, and evaluation code |
+| `tests/` | Automated tests for implementation and scientific conventions |
+| `scripts/` | Development-selection and final-model verification utilities; retained tested milestone helpers |
+| `results/` | Completed experiment outputs and reproducibility records |
+| `requirements/research-freeze-direct.txt` | Historical record of pinned direct dependencies |
+| `pyproject.toml`, `.python-version` | Package configuration and Python version |
 
-The recorded research Python version is **3.12.14**. With a Python 3.12
-environment and separately obtained datasets and ephemeris:
+Important results are organized under `results/model_architectures/`, `results/feature_comparison/`, `results/representation_controls/`, `results/solete_retrospective/`, `results/solete_architecture_synthesis/`, `results/pvod_feature_comparison/`, and `results/cross_dataset_synthesis/`. The `results/development_only/` directory preserves model-selection and chronological-CV evidence; it is **not** an instruction to retrain the historical experiments.
+
+## Installation
+
+**Python 3.12.14** is the recorded and tested environment. From the repository root:
 
 ```bash
-python -m venv .venv
+python3.12 -m venv .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip
 python -m pip install -e '.[ml,dl,notebook,dev]'
-python -m pytest -q
-ruff check .
 ```
 
-Direct package provenance is retained in
-`requirements/research-freeze-direct.txt`. Some historical archive readers
-check exact source fingerprints; changes to `src/` can invalidate those checks.
-The executed notebooks and archived metrics are research records rather than
-instructions to retrain or retune models on retrospective data.
+The full editable installation and all applicable pinned direct dependency versions were verified in a **fresh Python 3.12.14 virtual environment on macOS**. `pyproject.toml` is the installation specification. `requirements/research-freeze-direct.txt` documents historical direct versions but is **not a complete transitive lock file**.
+
+### Required external files
+
+The datasets and astronomical ephemeris are **not distributed in this repository**. Place them under the following paths:
+
+```text
+solete_dataset/
+  SOLETE_Pombo_5min.h5
+external_data/PVOD/
+  metadata.csv
+  station00.csv ... station09.csv
+ephemeris/
+  de440s.bsp
+```
+
+- SOLETE dataset: https://doi.org/10.11583/DTU.17040767
+- PVOD dataset: https://doi.org/10.11922/sciencedb.01094
+
+Additional SOLETE resolutions are useful for some data checks. The notebook code contains the precise input and population checks for each experiment.
+
+## Verification
+
+Check the installation and run the automated tests:
+
+```bash
+python -m pip check
+python -m pytest -q
+```
+
+**270 automated tests passed** in the existing research environment and in a separate fresh virtual environment (November 2026). This checks software behavior; it does not retrain the full forecasting campaign.
+
+If you have the **locally retained fitted LightGBM files**, you can also run the read-only final-refit integrity audit:
+
+```bash
+python scripts/verify_all_three_final_refits.py
+```
+
+The audit verifies the recorded 15-, 30-, and 60-minute final model files, metadata, model-selection lock, and source fingerprints. It does not retrain, score, or independently recompute the original input-data hashes. Some fitted model files are excluded from GitHub, so this audit **may not pass from a source-only clone**.
+
+Ruff is available for optional lint diagnostics (`python -m ruff check .`), but the existing repository is **not lint-clean**; linting is not presented as a passing reproducibility check.
+
+## Reproducibility scope
+
+The notebook sequence, completed results, and development archives document the study. SOLETE development model selection used three chronological folds, while PVOD used station-specific chronological splits. The historical model-development campaign and all original fitted models are not automatically recreated by running the tests. Neural F0 experiments used a different scaling convention from F1–F4, so F0–F1 neural comparisons require caution.
+
+Some integrity checks depend on frozen source-file fingerprints. Avoid editing frozen scientific modules solely to satisfy formatting tools without first assessing the effect on result provenance.
+
+Earlier experimental stages remain in Git commit history; the active repository contains the unified 16-notebook workflow.
